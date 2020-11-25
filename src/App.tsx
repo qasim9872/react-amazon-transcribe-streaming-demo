@@ -3,23 +3,24 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/base/Navbar';
 import Footer from './components/base/Footer';
 import Home from './views/Home';
+import StoreProviders from './store';
 
 function App() {
   return (
     <div className="relative">
-      <Router>
-        <Navbar />
+      <StoreProviders>
+        <Router>
+          <Navbar />
 
-        <div>
           <Switch>
             <Route path="/">
               <Home />
             </Route>
           </Switch>
-        </div>
 
-        <Footer />
-      </Router>
+          <Footer />
+        </Router>
+      </StoreProviders>
     </div>
   );
 }

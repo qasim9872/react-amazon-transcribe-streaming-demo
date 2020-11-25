@@ -1,7 +1,7 @@
 import React from 'react';
 
 function HomeView() {
-  return <></>;
+  return <>This is home</>;
 }
 
 export default HomeView;
