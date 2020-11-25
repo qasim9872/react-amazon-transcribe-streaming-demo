@@ -10,4 +10,5 @@
     "editor.detectIndentation": false,
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
+    "typescript.tsdk": "node_modules/typescript/lib",
 }
