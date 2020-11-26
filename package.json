@@ -11,12 +11,14 @@
     "@types/pino": "^6.3.4",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "hamburger-react": "^2.3.0",
     "pino": "^6.7.0",
     "pino-pretty": "^4.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-scroll": "^1.8.1",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
   },
@@ -47,6 +49,7 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.6",
+    "@types/react-scroll": "^1.8.2",
     "@typescript-eslint/eslint-plugin": "4.8.2",
     "@typescript-eslint/parser": "4.8.2",
     "autoprefixer": "^9.8.6",

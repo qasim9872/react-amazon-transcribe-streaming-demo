@@ -1,5 +1,9 @@
 const site = {
-  title: "Muhammad Qasim's Portfolio",
+  title: 'MQ',
+  links: [
+    { text: 'home', route: 'hero-section' },
+    { text: 'about', route: 'about-section' },
+  ],
   description: 'Developing applications, one idea at a time',
   url: 'https://tmplts-next-chakra.vercel.app',
   themeColor: '#333333',
