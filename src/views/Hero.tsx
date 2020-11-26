@@ -1,11 +1,12 @@
 import React from 'react';
+import SideBlock from '../components/SideBlock';
 
 const HeroView: React.FC = () => {
   return (
     <div
       id="hero-section"
       className="flex bg-white"
-      style={{ height: '600px' }}
+      style={{ height: '800px' }}
     >
       <div className="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
         <div>
@@ -34,20 +35,7 @@ const HeroView: React.FC = () => {
           </div>
         </div>
       </div>
-      <div
-        className="hidden lg:block lg:w-1/2 z-0"
-        style={{ clipPath: 'polygon(10% 0, 100% 0%, 100% 100%, 0 100%)' }}
-      >
-        <div
-          className="h-full object-cover"
-          style={{
-            backgroundImage:
-              'url(https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80)',
-          }}
-        >
-          <div className="h-full bg-black opacity-25" />
-        </div>
-      </div>
+      <SideBlock />
     </div>
   );
 };

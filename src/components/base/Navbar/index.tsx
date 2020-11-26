@@ -6,9 +6,7 @@ import { NavLink } from './Link';
 export const Navbar: React.FC = () => {
   const site = useSiteConfig();
   const links = site.links.map((link) => (
-    <NavLink key={link.text} text={link.text} route={link.route}>
-      {' '}
-    </NavLink>
+    <NavLink key={link.text} text={link.text} route={link.route} />
   ));
 
   return (
