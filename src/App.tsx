@@ -1,24 +1,28 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './components/base/Navbar/index';
-import Footer from './components/base/Footer';
+import SideNav from './components/base/SideNav/index';
 import Home from './views/Home';
 import StoreProviders from './store';
+
+const WrapHomeRoute: React.FC = () => {
+  return (
+    <Switch>
+      <Route path="/">
+        <Home />
+      </Route>
+    </Switch>
+  );
+};
 
 function App() {
   return (
     <div className="relative">
       <StoreProviders>
         <Router>
-          <Navbar />
-
-          <Switch>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-
-          <Footer />
+          <div className="max-w-6xl mx-auto flex">
+            <SideNav />
+            <WrapHomeRoute />
+          </div>
         </Router>
       </StoreProviders>
     </div>

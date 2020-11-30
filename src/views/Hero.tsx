@@ -1,5 +1,4 @@
 import React from 'react';
-import SideBlock from '../components/SideBlock';
 
 const HeroView: React.FC = () => {
   return (
@@ -35,7 +34,6 @@ const HeroView: React.FC = () => {
           </div>
         </div>
       </div>
-      <SideBlock />
     </div>
   );
 };
