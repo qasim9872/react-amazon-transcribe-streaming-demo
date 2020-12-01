@@ -3,6 +3,8 @@ import profile from '../assets/images/profile.jpeg';
 const author = {
   name: 'Muhammad Qasim',
   avatar: profile,
+  jobTitle: 'Software engineer',
+  location: 'London',
   socials: {
     github: 'https://github.com/qasim9872',
     twitter: 'https://twitter.com/qasim9872',

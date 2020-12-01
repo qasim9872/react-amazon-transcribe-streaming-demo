@@ -1,15 +1,22 @@
 import React from 'react';
-import useSiteConfig from '../../../hooks/use-site-config';
-import Logo from './Logo';
 import { NavLink } from './Link';
 
-export const Navbar: React.FC = () => {
-  const site = useSiteConfig();
-  const links = site.links.map((link) => (
-    <NavLink key={link.text} text={link.text} route={link.route} />
-  ));
+import { NavHeader } from './NavHeader';
+import { NavLinks } from './NavLinks';
+import { NavFooter } from './NavFooter';
 
-  return <div className="w-64 bg-gray-200 ">Nav</div>;
+export const Navbar: React.FC = () => {
+  //   const links = site.links.map((link) => (
+  //     <NavLink key={link.text} text={link.text} route={link.route} />
+  //   ));
+
+  return (
+    <div className="w-64 bg-gray-200 flex flex-col items-center pt-10 pb-20">
+      <NavHeader />
+      <NavLinks />
+      <NavFooter />
+    </div>
+  );
 };
 
 export default Navbar;
