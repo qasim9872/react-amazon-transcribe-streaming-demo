@@ -16,10 +16,10 @@ const WrapHomeRoute: React.FC = () => {
 
 function App() {
   return (
-    <div className="relative">
+    <div className="max-w-6xl mx-auto min-w-0">
       <StoreProviders>
         <Router>
-          <div className="max-w-6xl mx-auto flex">
+          <div className="flex">
             <SideNav />
             <WrapHomeRoute />
           </div>
