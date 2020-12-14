@@ -15,10 +15,10 @@ export const NavHeader: React.FC = () => {
   const author = useAuthorConfig();
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center py-3">
       <NavImage src={author.avatar} />
       <h1 className="pt-5 text-xl font-bold">{author.name}</h1>
-      <span className="uppercase pt-1 text-sm">
+      <span className="uppercase pt-2 text-sm">
         <span className="text-blue-400">{author.jobTitle}</span> in{' '}
         {author.location}
       </span>
