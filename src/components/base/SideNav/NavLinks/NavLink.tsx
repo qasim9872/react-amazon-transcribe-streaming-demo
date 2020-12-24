@@ -30,7 +30,7 @@ export const NavLink: React.FC<{
       text={text}
       route={route}
       className={[
-        'uppercase text-gray-800 tracking-1px font-weight-medium py-2 px-2 text-decoration-color',
+        'uppercase text-gray-800 tracking-1px font-weight-medium py-2 px-2 text-decoration-color cursor-pointer',
         'transition-all duration-300 ease-in-out',
         'transform hover:scale-110 hover:underline-color',
         'md:mx-2 hover:font-medium',
