@@ -1,6 +1,6 @@
 const site = {
   title: 'MQ',
-  links: [
+  sections: [
     { text: 'home', type: 'hero' },
     { text: 'about', type: 'about' },
     { text: 'services', type: 'services' },
