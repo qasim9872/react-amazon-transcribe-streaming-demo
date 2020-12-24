@@ -13,20 +13,25 @@ function getRandomColor() {
 }
 
 const wrapSection: React.FC<Section> = (details) => {
-  return <div key={details.text} id={mapRoute(details.text)} className="min-h-screen" style={{ backgroundColor: getRandomColor() }}> {Array(500).fill(details.text).join(' ')} </div>;
+  return (
+    <div
+      key={details.text}
+      id={mapRoute(details.text)}
+      className="min-h-screen"
+      style={{ backgroundColor: getRandomColor() }}
+    >
+      {' '}
+      {Array(500).fill(details.text).join(' ')}{' '}
+    </div>
+  );
 };
 
 const MainSection: React.FC = () => {
-
   const siteConfig = useSiteConfig();
 
   const sections = siteConfig.sections.map(wrapSection);
 
-  return (
-    <div className="flex-grow">
-      {sections}
-    </div>
-  );
+  return <div className="flex-grow">{sections}</div>;
 };
 
 export default MainSection;
