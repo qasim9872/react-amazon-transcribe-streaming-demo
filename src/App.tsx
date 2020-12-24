@@ -1,18 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SideNav from './components/base/SideNav/index';
-import Home from './views/Home';
+import Main from './sections/Main';
 import StoreProviders from './store';
-
-const WrapHomeRoute: React.FC = () => {
-  return (
-    <Switch>
-      <Route path="/">
-        <Home />
-      </Route>
-    </Switch>
-  );
-};
 
 function App() {
   return (
@@ -21,7 +11,13 @@ function App() {
         <Router>
           <div className="flex">
             <SideNav />
-            <WrapHomeRoute />
+            <div className="ml-64">
+              <Switch>
+                <Route path="/">
+                  <Main />
+                </Route>
+              </Switch>
+            </div>
           </div>
         </Router>
       </StoreProviders>
