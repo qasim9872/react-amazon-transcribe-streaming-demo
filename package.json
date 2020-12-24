@@ -2,6 +2,19 @@
   "name": "portfolio-ts",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "prestart": "npm run build:css",
+    "start": "HOST=0.0.0.0 react-scripts start",
+    "prebuild": "npm run build:css",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build:css": "postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css",
+    "watch:css": "npm run build:css -- -w",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
+    "format": "prettier --write 'src/**/*.{ts,tsx,json}'",
+    "isready": "npm run format && npm run lint && npm run build"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -21,19 +34,6 @@
     "react-scroll": "^1.8.1",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "prestart": "npm run build:css",
-    "start": "HOST=0.0.0.0 react-scripts start",
-    "prebuild": "npm run build:css",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:css": "postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css",
-    "watch:css": "npm run build:css -- -w",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
-    "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
-    "isready": "npm run format && npm run lint && npm run build"
   },
   "browserslist": {
     "production": [

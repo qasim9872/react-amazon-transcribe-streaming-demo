@@ -6,10 +6,12 @@ import { NavFooter } from './NavFooter';
 
 export const Navbar: React.FC = () => {
   return (
-    <div className="w-64 bg-gray-nav flex flex-col items-center pt-10 pb-20">
-      <NavHeader />
-      <NavLinks />
-      <NavFooter />
+    <div className="w-64 bg-gray-nav h-screen">
+      <div className="flex flex-col justify-around items-center h-screen 2xl:h-5/6">
+        <NavHeader />
+        <NavLinks />
+        <NavFooter />
+      </div>
     </div>
   );
 };
