@@ -9,3 +9,36 @@ h2,
 h3 {
   @apply font-headers;
 }
+
+.underline-animate {
+  text-decoration: none;
+}
+
+.underline-animate::before {
+  content: '';
+  @apply absolute;
+  @apply w-full;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  @apply bg-blue-nav;
+  @apply hidden;
+  @apply scale-x-0;
+  @apply transition;
+  @apply duration-300;
+  @apply ease-in-out;
+}
+
+.underline-animate:hover::before {
+  @apply visible;
+  @apply scale-x-100;
+}
+
+@layer utilities {
+  @variants hover {
+    .underline-color {
+      @apply underline;
+      text-decoration-color: rgb(44, 152, 240);
+    }
+  }
+}
