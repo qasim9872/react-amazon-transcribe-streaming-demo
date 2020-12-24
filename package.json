@@ -24,7 +24,7 @@
   },
   "scripts": {
     "prestart": "npm run build:css",
-    "start": "react-scripts start",
+    "start": "HOST=0.0.0.0 react-scripts start",
     "prebuild": "npm run build:css",
     "build": "react-scripts build",
     "test": "react-scripts test",
