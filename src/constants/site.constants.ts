@@ -1,4 +1,4 @@
-import { Sections } from '../interfaces/Section';
+import { HeroSection, Sections } from '../interfaces/Section';
 
 export interface SiteConfig {
   title: string;
@@ -6,11 +6,29 @@ export interface SiteConfig {
   description: string;
 }
 
+const heroSection: HeroSection = {
+  type: 'hero',
+  text: 'home',
+  cta: { text: 'Download CV', link: '' },
+  slides: [
+    {
+      bgImageClass: 'hero-1',
+      title: "Hi! I'm Qasim",
+      subtitle: 'TODO: subtitle',
+    },
+    {
+      bgImageClass: 'hero-2',
+      title: 'I am a software engineer',
+      subtitle: 'TODO: subtitle',
+    },
+  ],
+};
+
 const site: SiteConfig = {
   title: 'MQ',
   description: 'Developing applications, one idea at a time',
   sections: [
-    { text: 'home', type: 'hero' },
+    heroSection,
     { text: 'about', type: 'about' },
     { text: 'services', type: 'blank' },
     { text: 'skills', type: 'blank' },

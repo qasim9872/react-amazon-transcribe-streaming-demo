@@ -734,6 +734,13 @@ module.exports = {
       40: '40',
       50: '50',
     },
+    extend: {
+      backgroundImage: (theme) => ({
+        ...theme,
+        'hero-1': "url('../images/hero.jpg')",
+        'hero-2': "url('../images/hero_2.jpeg')",
+      }),
+    },
   },
   variantOrder: [
     'first',

@@ -4273,6 +4273,14 @@ video {
   background-image: linear-gradient(to top left, var(--tw-gradient-stops));
 }
 
+.bg-hero-1 {
+  background-image: url('../images/hero.jpg');
+}
+
+.bg-hero-2 {
+  background-image: url('../images/hero_2.jpeg');
+}
+
 .from-transparent {
   --tw-gradient-from: transparent;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -33230,6 +33238,14 @@ h1, h2, h3 {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
+  .sm\:bg-hero-1 {
+    background-image: url('../images/hero.jpg');
+  }
+
+  .sm\:bg-hero-2 {
+    background-image: url('../images/hero_2.jpeg');
+  }
+
   .sm\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -62124,6 +62140,14 @@ h1, h2, h3 {
 
   .md\:bg-gradient-to-tl {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+  }
+
+  .md\:bg-hero-1 {
+    background-image: url('../images/hero.jpg');
+  }
+
+  .md\:bg-hero-2 {
+    background-image: url('../images/hero_2.jpeg');
   }
 
   .md\:from-transparent {
@@ -91022,6 +91046,14 @@ h1, h2, h3 {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
+  .lg\:bg-hero-1 {
+    background-image: url('../images/hero.jpg');
+  }
+
+  .lg\:bg-hero-2 {
+    background-image: url('../images/hero_2.jpeg');
+  }
+
   .lg\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -119918,6 +119950,14 @@ h1, h2, h3 {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
+  .xl\:bg-hero-1 {
+    background-image: url('../images/hero.jpg');
+  }
+
+  .xl\:bg-hero-2 {
+    background-image: url('../images/hero_2.jpeg');
+  }
+
   .xl\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -148812,6 +148852,14 @@ h1, h2, h3 {
 
   .\32xl\:bg-gradient-to-tl {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+  }
+
+  .\32xl\:bg-hero-1 {
+    background-image: url('../images/hero.jpg');
+  }
+
+  .\32xl\:bg-hero-2 {
+    background-image: url('../images/hero_2.jpeg');
   }
 
   .\32xl\:from-transparent {

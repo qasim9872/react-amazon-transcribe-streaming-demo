@@ -1,6 +1,5 @@
 import React from 'react';
 import { BlankSection } from '../../interfaces/Section';
-import { mapRoute } from '../../utils/helpers';
 
 function getRandomColor() {
   const letters = '0123456789ABCDEF';
@@ -13,12 +12,7 @@ function getRandomColor() {
 
 const Blank: React.FC<BlankSection> = (details) => {
   return (
-    <div
-      key={details.text}
-      id={mapRoute(details.text)}
-      className="min-h-screen"
-      style={{ backgroundColor: getRandomColor() }}
-    >
+    <div style={{ backgroundColor: getRandomColor() }}>
       {' '}
       {Array(500).fill(details.text).join(' ')}{' '}
     </div>

@@ -1,7 +1,10 @@
+import React from 'react';
+
 import Hero from './Hero';
 import About from './About';
 import Blank from './Blank';
 import Section from '../../interfaces/Section';
+import { mapRoute } from '../../utils/helpers';
 
 const LayoutMap = {
   hero: Hero,
@@ -22,4 +25,18 @@ const buildLayout: React.FC<Section> = (details) => {
   }
 };
 
-export default buildLayout;
+const buildAndWrapLayout: React.FC<Section> = (details) => {
+  const layout = buildLayout(details);
+
+  return (
+    <div
+      key={details.text}
+      id={mapRoute(details.text)}
+      className="min-h-screen"
+    >
+      {layout}
+    </div>
+  );
+};
+
+export default buildAndWrapLayout;

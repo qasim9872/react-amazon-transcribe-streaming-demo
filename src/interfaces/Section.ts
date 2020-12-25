@@ -5,8 +5,20 @@ export interface BaseSection {
   type: SectionType;
 }
 
+export interface HeroSlide {
+  bgImageClass: string;
+  title: string;
+  subtitle: string;
+}
+
+export interface CallToAction {
+  text: string;
+  link: string;
+}
 export interface HeroSection extends BaseSection {
   type: 'hero';
+  slides: HeroSlide[];
+  cta: CallToAction;
 }
 
 export interface AboutSection extends BaseSection {

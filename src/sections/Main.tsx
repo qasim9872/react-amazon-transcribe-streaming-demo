@@ -1,11 +1,11 @@
 import React from 'react';
 import useSiteConfig from '../hooks/use-site-config';
-import buildLayout from './layouts/index';
+import buildAndWrapLayout from './layouts';
 
 const MainSection: React.FC = () => {
   const siteConfig = useSiteConfig();
 
-  const sections = siteConfig.sections.map(buildLayout);
+  const sections = siteConfig.sections.map(buildAndWrapLayout);
 
   return <div className="flex-grow">{sections}</div>;
 };
