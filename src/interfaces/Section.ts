@@ -1,19 +1,19 @@
 export type SectionType = 'hero' | 'about' | 'blank';
 
-interface BaseSection {
+export interface BaseSection {
   text: string;
   type: SectionType;
 }
 
-interface HeroSection extends BaseSection {
+export interface HeroSection extends BaseSection {
   type: 'hero';
 }
 
-interface AboutSection extends BaseSection {
+export interface AboutSection extends BaseSection {
   type: 'about';
 }
 
-interface BlankSection extends BaseSection {
+export interface BlankSection extends BaseSection {
   type: 'blank';
 }
 

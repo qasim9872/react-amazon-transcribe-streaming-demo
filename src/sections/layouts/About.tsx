@@ -1,8 +1,8 @@
 import React from 'react';
-import Section from '../../interfaces/Section';
+import { AboutSection } from '../../interfaces/Section';
 import { mapRoute } from '../../utils/helpers';
 
-const About: React.FC<Section> = (details) => {
+const About: React.FC<AboutSection> = (details) => {
   return (
     <div
       key={details.text}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Section from '../../interfaces/Section';
+import { BlankSection } from '../../interfaces/Section';
 import { mapRoute } from '../../utils/helpers';
 
 function getRandomColor() {
@@ -11,7 +11,7 @@ function getRandomColor() {
   return color;
 }
 
-const Blank: React.FC<Section> = (details) => {
+const Blank: React.FC<BlankSection> = (details) => {
   return (
     <div
       key={details.text}
