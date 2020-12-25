@@ -28,6 +28,7 @@
     "hamburger-react": "^2.3.0",
     "pino": "^6.7.0",
     "pino-pretty": "^4.3.0",
+    "popmotion": "^9.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
