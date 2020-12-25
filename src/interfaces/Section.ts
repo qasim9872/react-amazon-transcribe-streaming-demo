@@ -6,7 +6,7 @@ export interface BaseSection {
 }
 
 export interface HeroSlide {
-  bgImageClass: string;
+  image: string;
   title: string;
   subtitle: string;
 }

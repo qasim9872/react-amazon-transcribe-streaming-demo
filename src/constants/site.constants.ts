@@ -1,4 +1,6 @@
 import { HeroSection, Sections } from '../interfaces/Section';
+import heroImage1 from '../assets/images/hero.jpg';
+import heroImage2 from '../assets/images/hero_2.jpeg';
 
 export interface SiteConfig {
   title: string;
@@ -12,12 +14,12 @@ const heroSection: HeroSection = {
   cta: { text: 'Download CV', link: '' },
   slides: [
     {
-      bgImageClass: 'hero-1',
+      image: heroImage1,
       title: "Hi! I'm Qasim",
       subtitle: 'TODO: subtitle',
     },
     {
-      bgImageClass: 'hero-2',
+      image: heroImage2,
       title: 'I am a software engineer',
       subtitle: 'TODO: subtitle',
     },
