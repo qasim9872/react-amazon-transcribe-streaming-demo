@@ -28,7 +28,7 @@ export interface HeroSection extends BaseSection {
 
 export interface AboutSection extends BaseSection {
   type: 'about';
-  text: string;
+  textArray: string[];
 }
 
 export type AboutSectionBasicWrapper = AboutSection & Wrapper;

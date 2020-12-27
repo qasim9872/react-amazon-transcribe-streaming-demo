@@ -7,11 +7,6 @@ import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
 import { download } from './icons.svg';
 
-const animation = {
-  initial: 'fromLeft',
-  animate: 'show',
-};
-
 export interface SiteConfig {
   title: string;
   sections: Sections;
@@ -44,8 +39,22 @@ const aboutUsSection: AboutSectionBasicWrapper = {
   header: 'about us',
   title: 'who am i?',
 
-  text: 'placeholder',
-  animation,
+  textArray: [
+    [
+      'Ever since I was young, software development has been my passion.',
+      'I remember working with a program in one of my computer classes where we were able to control an LED light by writing commands in the computer.',
+      'The moment the light came on, I was hooked.',
+      'It felt magical, to be able to create anything I could imagine.',
+    ].join(' '),
+    [
+      'Throughout the remaining part of my school and university, I experimented with a wide set of technologies.',
+      'Initially designing and building simple applications using Java, moving on to web development with JQuery and experimenting with game development with Unity 3D.',
+    ].join(' '),
+    [
+      'Driven by my passion, I finished university and officially started a job as a software engineer at Accenture.',
+      'Working on innovative projects that use technology such as Artificial Intelligence, I  strive to learn and improve.',
+    ].join(' '),
+  ],
 };
 
 const site: SiteConfig = {
@@ -61,7 +70,6 @@ const site: SiteConfig = {
       wrap: 'basic',
       header: 'what i do?',
       title: 'Here are some of my expertise',
-      animation,
     },
 
     {
