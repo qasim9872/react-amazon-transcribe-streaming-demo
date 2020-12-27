@@ -3,8 +3,11 @@ import React from 'react';
 import Hero from './Hero';
 import About from './About';
 import Blank from './Blank';
+
 import Section from '../../interfaces/Section';
 import { mapRoute } from '../../utils/helpers';
+import wrapLayout from '../wrappers';
+import { Wrapper } from '../../interfaces/Wrapper';
 
 const LayoutMap = {
   hero: Hero,
@@ -28,9 +31,15 @@ const buildLayout: React.FC<Section> = (details) => {
 const buildAndWrapLayout: React.FC<Section> = (details) => {
   const layout = buildLayout(details);
 
+  if (!layout) {
+    throw new Error('No layout built');
+  }
+
+  const wrapper = details.wrap ? wrapLayout(details, layout) : layout;
+
   return (
     <div key={details.id} id={mapRoute(details.id)} className="min-h-screen">
-      {layout}
+      {wrapper}
     </div>
   );
 };

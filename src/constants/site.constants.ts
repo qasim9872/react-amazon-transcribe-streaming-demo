@@ -1,4 +1,8 @@
-import { AboutSection, HeroSection, Sections } from '../interfaces/Section';
+import {
+  AboutSectionBasicWrapper,
+  HeroSection,
+  Sections,
+} from '../interfaces/Section';
 import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
 
@@ -26,12 +30,14 @@ const heroSection: HeroSection = {
   ],
 };
 
-const aboutUsSection: AboutSection = {
+const aboutUsSection: AboutSectionBasicWrapper = {
   id: 'about',
   type: 'about',
 
+  wrap: 'basic',
   header: 'about us',
   title: 'who am i?',
+
   details: 'placeholder',
 };
 
