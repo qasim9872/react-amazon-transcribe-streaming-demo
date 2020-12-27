@@ -1,17 +1,16 @@
 import React from 'react';
 
 import Hero from './Hero';
-import About from './About';
+import Dynamic from './Dynamic';
 import Blank from './Blank';
 
 import Section from '../../interfaces/Section';
 import { mapRoute } from '../../utils/helpers';
 import wrapLayout from '../wrappers';
-import { Wrapper } from '../../interfaces/Wrapper';
 
 const LayoutMap = {
   hero: Hero,
-  about: About,
+  dynamic: Dynamic,
   blank: Blank,
 };
 
@@ -19,7 +18,7 @@ const buildLayout: React.FC<Section> = (details) => {
   switch (details.type) {
     case 'hero':
       return LayoutMap[details.type](details);
-    case 'about':
+    case 'dynamic':
       return LayoutMap[details.type](details);
     case 'blank':
       return LayoutMap[details.type](details);

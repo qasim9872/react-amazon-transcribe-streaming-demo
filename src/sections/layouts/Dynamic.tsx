@@ -1,8 +1,8 @@
 import React from 'react';
 import useAuthorConfig from '../../hooks/use-author-config';
-import { AboutSection } from '../../interfaces/Section';
+import { DynamicSection } from '../../interfaces/Section';
 
-const About: React.FC<AboutSection> = (details) => {
+const Dynamic: React.FC<DynamicSection> = (details) => {
   const author = useAuthorConfig();
 
   return (
@@ -21,4 +21,4 @@ const About: React.FC<AboutSection> = (details) => {
   );
 };
 
-export default About;
+export default Dynamic;

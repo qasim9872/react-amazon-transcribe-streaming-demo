@@ -1,7 +1,7 @@
 import {
-  AboutSectionBasicWrapper,
-  HeroSection,
   Sections,
+  HeroSection,
+  DynamicSectionBasicWrapper,
 } from '../interfaces/Section';
 import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
@@ -13,10 +13,12 @@ export interface SiteConfig {
   description: string;
 }
 
+export const CallToAction = { text: 'Download CV', link: '', icon: download };
+
 const heroSection: HeroSection = {
   id: 'home',
   type: 'hero',
-  cta: { text: 'Download CV', link: '', icon: download },
+  cta: CallToAction,
   slides: [
     {
       image: heroImage1,
@@ -31,9 +33,9 @@ const heroSection: HeroSection = {
   ],
 };
 
-const aboutUsSection: AboutSectionBasicWrapper = {
+const aboutUsSection: DynamicSectionBasicWrapper = {
   id: 'about',
-  type: 'about',
+  type: 'dynamic',
 
   wrap: 'basic',
   header: 'about us',

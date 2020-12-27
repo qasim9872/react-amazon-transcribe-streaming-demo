@@ -1,6 +1,6 @@
 import { Wrapper, WrapperType } from './Wrapper';
 
-export type SectionType = 'hero' | 'about' | 'blank';
+export type SectionType = 'hero' | 'dynamic' | 'blank';
 
 export interface BaseSection {
   id: string;
@@ -26,12 +26,12 @@ export interface HeroSection extends BaseSection {
   cta: CallToAction;
 }
 
-export interface AboutSection extends BaseSection {
-  type: 'about';
+export interface DynamicSection extends BaseSection {
+  type: 'dynamic';
   textArray: string[];
 }
 
-export type AboutSectionBasicWrapper = AboutSection & Wrapper;
+export type DynamicSectionBasicWrapper = DynamicSection & Wrapper;
 
 export interface BlankSection extends BaseSection {
   type: 'blank';
@@ -41,8 +41,8 @@ export type BlankSectionBasicWrapper = BlankSection & Wrapper;
 
 export type Section =
   | HeroSection
-  | AboutSection
-  | AboutSectionBasicWrapper
+  | DynamicSection
+  | DynamicSectionBasicWrapper
   | BlankSection
   | BlankSectionBasicWrapper;
 export type Sections = Section[];
