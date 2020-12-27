@@ -14,7 +14,6 @@ export interface HeroSlide {
 export interface CallToAction {
   text: string;
   link: string;
-  icon: string;
 }
 export interface HeroSection extends BaseSection {
   type: 'hero';

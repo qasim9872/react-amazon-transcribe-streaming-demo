@@ -1,5 +1,4 @@
-import { HeroSection, Sections } from '../interfaces/Section';
-import downArrayIcon from '../assets/images/down-arrow.png';
+import { AboutSection, HeroSection, Sections } from '../interfaces/Section';
 import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
 
@@ -12,7 +11,7 @@ export interface SiteConfig {
 const heroSection: HeroSection = {
   type: 'hero',
   text: 'home',
-  cta: { text: 'Download CV', icon: downArrayIcon, link: '' },
+  cta: { text: 'Download CV', link: '' },
   slides: [
     {
       image: heroImage1,
@@ -27,12 +26,17 @@ const heroSection: HeroSection = {
   ],
 };
 
+const aboutUsSection: AboutSection = {
+  text: 'about',
+  type: 'about',
+};
+
 const site: SiteConfig = {
   title: 'MQ',
   description: 'Developing applications, one idea at a time',
   sections: [
     heroSection,
-    { text: 'about', type: 'about' },
+    aboutUsSection,
     { text: 'services', type: 'blank' },
     { text: 'skills', type: 'blank' },
     { text: 'education', type: 'blank' },
