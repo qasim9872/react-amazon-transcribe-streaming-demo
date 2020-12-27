@@ -3,7 +3,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
 import { CallToAction, HeroSlide } from '../interfaces/Section';
-import CallToActionElem from './base/CallToAction';
+import CallToActionElem from './ui/CallToAction';
 import HeroSlideElem from './HeroSlide';
 
 const CarouselWrapper: React.FC<{ slides: HeroSlide[]; cta: CallToAction }> = ({

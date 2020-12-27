@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { CallToAction } from '../../interfaces/Section';
-
 const CallToActionElem: React.FC<{
   link: string;
   text: string;
