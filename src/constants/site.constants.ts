@@ -38,7 +38,7 @@ const aboutUsSection: AboutSectionBasicWrapper = {
   header: 'about us',
   title: 'who am i?',
 
-  details: 'placeholder',
+  text: 'placeholder',
 };
 
 const site: SiteConfig = {
@@ -47,13 +47,63 @@ const site: SiteConfig = {
   sections: [
     heroSection,
     aboutUsSection,
-    { id: 'services', type: 'blank' },
-    { id: 'skills', type: 'blank' },
-    { id: 'education', type: 'blank' },
-    { id: 'experience', type: 'blank' },
-    { id: 'work', type: 'blank' },
-    { id: 'blog', type: 'blank' },
-    { id: 'contact', type: 'blank' },
+    {
+      id: 'services',
+      type: 'blank',
+
+      wrap: 'basic',
+      header: 'what i do?',
+      title: 'Here are some of my expertise',
+    },
+
+    {
+      id: 'skills',
+      type: 'blank',
+
+      wrap: 'basic',
+      header: 'my specialty',
+      title: 'my skills',
+    },
+    {
+      id: 'education',
+      type: 'blank',
+
+      wrap: 'basic',
+      header: 'education',
+      title: 'education',
+    },
+    {
+      id: 'experience',
+      type: 'blank',
+
+      wrap: 'basic',
+      header: 'experience',
+      title: 'work experience',
+    },
+    {
+      id: 'work',
+      type: 'blank',
+
+      wrap: 'basic',
+      header: 'my work',
+      title: 'recent work',
+    },
+    {
+      id: 'blog',
+      type: 'blank',
+
+      wrap: 'basic',
+      header: 'read',
+      title: 'recent blog',
+    },
+    {
+      id: 'contact',
+      type: 'blank',
+
+      wrap: 'basic',
+      header: 'get in touch',
+      title: 'contact',
+    },
   ],
 };
 

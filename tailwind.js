@@ -437,6 +437,7 @@ module.exports = {
       wider: '0.05em',
       widest: '0.1em',
       '1px': '1px',
+      '5px': '5px',
     },
     lineHeight: {
       none: '1',
@@ -484,6 +485,7 @@ module.exports = {
       '6xl': '72rem',
       '7xl': '80rem',
       full: '100%',
+      '1/2': '50%',
       min: 'min-content',
       max: 'max-content',
       prose: '65ch',

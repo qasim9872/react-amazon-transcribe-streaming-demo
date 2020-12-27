@@ -5,7 +5,7 @@ import Carousel from '../../components/CarouselWrapper';
 const Hero: React.FC<HeroSection> = (details) => {
   return (
     <div className="h-screen">
-      <Carousel slides={details.slides} cta={details.cta} />;
+      <Carousel slides={details.slides} cta={details.cta} />
     </div>
   );
 };

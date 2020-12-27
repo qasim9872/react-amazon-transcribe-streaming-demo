@@ -27,7 +27,7 @@ export interface HeroSection extends BaseSection {
 
 export interface AboutSection extends BaseSection {
   type: 'about';
-  details: string;
+  text: string;
 }
 
 export type AboutSectionBasicWrapper = AboutSection & Wrapper;
@@ -36,11 +36,14 @@ export interface BlankSection extends BaseSection {
   type: 'blank';
 }
 
+export type BlankSectionBasicWrapper = BlankSection & Wrapper;
+
 export type Section =
   | HeroSection
   | AboutSection
   | AboutSectionBasicWrapper
-  | BlankSection;
+  | BlankSection
+  | BlankSectionBasicWrapper;
 export type Sections = Section[];
 
 export default Section;
