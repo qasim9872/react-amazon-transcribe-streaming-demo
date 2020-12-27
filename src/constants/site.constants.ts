@@ -1,4 +1,5 @@
 import { HeroSection, Sections } from '../interfaces/Section';
+import downArrayIcon from '../assets/images/down-arrow.png';
 import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
 
@@ -11,17 +12,17 @@ export interface SiteConfig {
 const heroSection: HeroSection = {
   type: 'hero',
   text: 'home',
-  cta: { text: 'Download CV', link: '' },
+  cta: { text: 'Download CV', icon: downArrayIcon, link: '' },
   slides: [
     {
       image: heroImage1,
-      title: "Hi! I'm Qasim",
-      subtitle: 'TODO: subtitle',
+      title: ['Hi!', "I'm Qasim"],
+      subtitle: '',
     },
     {
       image: heroImage2,
-      title: 'I am a software engineer',
-      subtitle: 'TODO: subtitle',
+      title: ['I am a', 'Software Engineer'],
+      subtitle: '',
     },
   ],
 };

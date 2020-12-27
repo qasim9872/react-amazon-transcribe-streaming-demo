@@ -6,12 +6,12 @@ import StoreProviders from './store';
 
 function App() {
   return (
-    <div className="max-w-6xl mx-auto min-w-0">
+    <div className="mx-auto min-w-0">
       <StoreProviders>
         <Router>
           <div className="flex">
             <SideNav />
-            <div className="ml-64">
+            <div className="ml-72">
               <Switch>
                 <Route path="/">
                   <Main />

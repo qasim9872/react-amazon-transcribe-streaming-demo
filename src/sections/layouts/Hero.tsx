@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeroSection } from '../../interfaces/Section';
-import Carousel from '../../components/Carousel';
+import Carousel from '../../components/CarouselWrapper';
 
 const Hero: React.FC<HeroSection> = (details) => {
   return (

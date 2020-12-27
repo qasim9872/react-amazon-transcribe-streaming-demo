@@ -7,13 +7,14 @@ export interface BaseSection {
 
 export interface HeroSlide {
   image: string;
-  title: string;
+  title: string[];
   subtitle: string;
 }
 
 export interface CallToAction {
   text: string;
   link: string;
+  icon: string;
 }
 export interface HeroSection extends BaseSection {
   type: 'hero';
