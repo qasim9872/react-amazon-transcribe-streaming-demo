@@ -5,6 +5,12 @@ import {
 } from '../interfaces/Section';
 import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
+import { download } from './icons.svg';
+
+const animation = {
+  initial: 'fromLeft',
+  animate: 'show',
+};
 
 export interface SiteConfig {
   title: string;
@@ -15,7 +21,7 @@ export interface SiteConfig {
 const heroSection: HeroSection = {
   id: 'home',
   type: 'hero',
-  cta: { text: 'Download CV', link: '' },
+  cta: { text: 'Download CV', link: '', icon: download },
   slides: [
     {
       image: heroImage1,
@@ -39,6 +45,7 @@ const aboutUsSection: AboutSectionBasicWrapper = {
   title: 'who am i?',
 
   text: 'placeholder',
+  animation,
 };
 
 const site: SiteConfig = {
@@ -54,6 +61,7 @@ const site: SiteConfig = {
       wrap: 'basic',
       header: 'what i do?',
       title: 'Here are some of my expertise',
+      animation,
     },
 
     {
