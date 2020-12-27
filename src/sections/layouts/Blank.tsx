@@ -14,7 +14,7 @@ const Blank: React.FC<BlankSection> = (details) => {
   return (
     <div style={{ backgroundColor: getRandomColor() }}>
       {' '}
-      {Array(500).fill(details.text).join(' ')}{' '}
+      {Array(500).fill(details.id).join(' ')}{' '}
     </div>
   );
 };

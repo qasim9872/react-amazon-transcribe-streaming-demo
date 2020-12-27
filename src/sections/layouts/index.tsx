@@ -29,11 +29,7 @@ const buildAndWrapLayout: React.FC<Section> = (details) => {
   const layout = buildLayout(details);
 
   return (
-    <div
-      key={details.text}
-      id={mapRoute(details.text)}
-      className="min-h-screen"
-    >
+    <div key={details.id} id={mapRoute(details.id)} className="min-h-screen">
       {layout}
     </div>
   );

@@ -9,8 +9,8 @@ export interface SiteConfig {
 }
 
 const heroSection: HeroSection = {
+  id: 'home',
   type: 'hero',
-  text: 'home',
   cta: { text: 'Download CV', link: '' },
   slides: [
     {
@@ -27,8 +27,12 @@ const heroSection: HeroSection = {
 };
 
 const aboutUsSection: AboutSection = {
-  text: 'about',
+  id: 'about',
   type: 'about',
+
+  header: 'about us',
+  title: 'who am i?',
+  details: 'placeholder',
 };
 
 const site: SiteConfig = {
@@ -37,13 +41,13 @@ const site: SiteConfig = {
   sections: [
     heroSection,
     aboutUsSection,
-    { text: 'services', type: 'blank' },
-    { text: 'skills', type: 'blank' },
-    { text: 'education', type: 'blank' },
-    { text: 'experience', type: 'blank' },
-    { text: 'work', type: 'blank' },
-    { text: 'blog', type: 'blank' },
-    { text: 'contact', type: 'blank' },
+    { id: 'services', type: 'blank' },
+    { id: 'skills', type: 'blank' },
+    { id: 'education', type: 'blank' },
+    { id: 'experience', type: 'blank' },
+    { id: 'work', type: 'blank' },
+    { id: 'blog', type: 'blank' },
+    { id: 'contact', type: 'blank' },
   ],
 };
 

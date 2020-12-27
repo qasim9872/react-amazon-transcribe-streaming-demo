@@ -1,7 +1,7 @@
 export type SectionType = 'hero' | 'about' | 'blank';
 
 export interface BaseSection {
-  text: string;
+  id: string;
   type: SectionType;
 }
 
@@ -23,6 +23,9 @@ export interface HeroSection extends BaseSection {
 
 export interface AboutSection extends BaseSection {
   type: 'about';
+  header: string;
+  title: string;
+  details: string;
 }
 
 export interface BlankSection extends BaseSection {
