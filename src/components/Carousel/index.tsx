@@ -7,19 +7,19 @@ import { CallToAction, HeroSlide } from '../../interfaces/Section';
 const variants = {
   enter: (direction: number) => {
     return {
-      y: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? 1000 : -1000,
       opacity: 0,
     };
   },
   center: {
     zIndex: 1,
-    y: 0,
+    x: 0,
     opacity: 1,
   },
   exit: (direction: number) => {
     return {
       zIndex: 0,
-      y: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? 1000 : -1000,
       opacity: 0,
     };
   },
@@ -60,44 +60,43 @@ const Carousel: React.FC<{ slides: HeroSlide[]; cta: CallToAction }> = ({
   });
 
   return (
-    <div className="h-screen flex">
-      <AnimatePresence>
-        <motion.div
-          className="flex-grow"
-          style={{ image: `url(${slides[slideIndex].image})` }}
-          key={page}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            y: { type: 'spring', stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 },
-          }}
-          drag="y"
-          dragConstraints={{ top: 0, bottom: 0 }}
-          dragElastic={1}
-          onDragEnd={(e, { offset, velocity }) => {
-            const swipe = swipePower(offset.x, velocity.x);
+    <AnimatePresence>
+      <motion.div
+        className="flex"
+        key={page}
+        custom={direction}
+        variants={variants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        transition={{
+          x: { type: 'spring', stiffness: 300, damping: 30 },
+          opacity: { duration: 0.2 },
+        }}
+        drag="x"
+        dragConstraints={{ top: 0, bottom: 0 }}
+        dragElastic={1}
+        onDragEnd={(e, { offset, velocity }) => {
+          const swipe = swipePower(offset.x, velocity.x);
 
-            if (swipe < -swipeConfidenceThreshold) {
-              paginate(1);
-            } else if (swipe > swipeConfidenceThreshold) {
-              paginate(-1);
-            }
-          }}
+          if (swipe < -swipeConfidenceThreshold) {
+            paginate(1);
+          } else if (swipe > swipeConfidenceThreshold) {
+            paginate(-1);
+          }
+        }}
+      >
+        <div
+          className="flex flex-grow w-full h-screen bg-cover bg-center object-cover"
+          style={{ backgroundImage: `url(${slides[slideIndex].image})` }}
         >
-          <div
-            className="w-full bg-cover bg-center h-screen object-cover"
-            style={{ backgroundImage: `url(${slides[slideIndex].image})` }}
-          >
-            <h1>{slides[slideIndex].title}</h1>
-            <h2>{slides[slideIndex].subtitle}</h2>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-    </div>
+          <motion.div className="flex flex-grow flex-col justify-center pl-7">
+            <h1 className="text-6xl">{slides[slideIndex].title}</h1>
+            <h2 className="text-3xl">{slides[slideIndex].subtitle}</h2>
+          </motion.div>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
