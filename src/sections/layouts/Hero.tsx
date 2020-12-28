@@ -1,8 +1,12 @@
-import React from 'react';
-import { HeroSection } from '../../interfaces/Section';
+import React, { ComponentProps } from 'react';
 import Carousel from '../../components/CarouselWrapper';
 
-const Hero: React.FC<HeroSection> = (details) => {
+const Hero: React.FC<{
+  id: string;
+  type: 'Hero';
+  slides: ComponentProps<typeof Carousel>['slides'];
+  cta: ComponentProps<typeof Carousel>['cta'];
+}> = (details) => {
   return (
     <div className="h-screen">
       <Carousel slides={details.slides} cta={details.cta} />

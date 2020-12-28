@@ -1,8 +1,11 @@
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
-import { BasicWrapper } from '../../interfaces/Wrapper';
 
-const Basic: React.FC<BasicWrapper> = ({ children, header, title }) => {
+const Basic: React.FC<{
+  wrap: 'Basic';
+  header: string;
+  title: string;
+}> = ({ children, header, title }) => {
   return (
     <div className="px-10 py-28 flex flex-col">
       <div className="flex flex-col justify-around uppercase max-w-1/2">

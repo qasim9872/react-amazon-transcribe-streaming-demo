@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
-import { CallToAction, HeroSlide } from '../interfaces/Section';
-import CallToActionElem from './ui/CallToAction';
-import HeroSlideElem from './HeroSlide';
+import CallToAction from './ui/CallToAction';
+import HeroSlide from './ui/HeroSlide';
 
-const CarouselWrapper: React.FC<{ slides: HeroSlide[]; cta: CallToAction }> = ({
-  cta,
-  slides,
-}) => {
+const CarouselWrapper: React.FC<{
+  slides: ComponentProps<typeof HeroSlide>['slideData'][];
+  cta: ComponentProps<typeof CallToAction>;
+}> = ({ cta, slides }) => {
   const callToAction = (
-    <CallToActionElem text={cta.text} link={cta.link} icon={cta.icon} />
+    <CallToAction text={cta.text} link={cta.link} icon={cta.icon} />
   );
 
   return (
@@ -26,7 +25,7 @@ const CarouselWrapper: React.FC<{ slides: HeroSlide[]; cta: CallToAction }> = ({
       stopOnHover={false}
     >
       {slides.map((slideData) => (
-        <HeroSlideElem
+        <HeroSlide
           key={slideData.title.join(' ')}
           callToActionElem={callToAction}
           slideData={slideData}

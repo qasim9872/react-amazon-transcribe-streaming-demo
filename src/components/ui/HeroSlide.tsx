@@ -1,10 +1,8 @@
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
 
-import { HeroSlide } from '../interfaces/Section';
-
 const HeroSlideElem: React.FC<{
-  slideData: HeroSlide;
+  slideData: { image: string; title: string[]; subtitle: string };
   callToActionElem: JSX.Element;
 }> = ({ callToActionElem, slideData }) => {
   return (

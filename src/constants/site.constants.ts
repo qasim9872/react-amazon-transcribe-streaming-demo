@@ -1,23 +1,37 @@
-import {
-  Sections,
-  HeroSection,
-  DynamicSectionBasicWrapper,
-} from '../interfaces/Section';
+import { ComponentProps } from 'react';
+
 import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
 import { download } from './icons.svg';
 
+import layouts, { Layout } from '../sections/layouts';
+import wrappers, { Wrapper } from '../sections/wrappers';
+
+type HeroLayout = ComponentProps<typeof layouts.Hero>;
+type DynamicLayout = ComponentProps<typeof layouts.Dynamic>;
+
+type NoneWrapper = ComponentProps<typeof wrappers.None>;
+type BasicWrapper = ComponentProps<typeof wrappers.Basic>;
+
+type HeroLayoutWithNoneWrapper = HeroLayout & NoneWrapper;
+type DynamicLayoutWithBasicWrapper = DynamicLayout & BasicWrapper;
+
+type LayoutWithWrapper = Layout & Wrapper;
+
 export interface SiteConfig {
   title: string;
-  sections: Sections;
+  sections: LayoutWithWrapper[];
   description: string;
 }
 
 export const CallToAction = { text: 'Download CV', link: '', icon: download };
 
-const heroSection: HeroSection = {
+const heroSection: HeroLayoutWithNoneWrapper = {
   id: 'home',
-  type: 'hero',
+  type: 'Hero',
+
+  wrap: 'None',
+
   cta: CallToAction,
   slides: [
     {
@@ -33,13 +47,15 @@ const heroSection: HeroSection = {
   ],
 };
 
-const aboutUsSection: DynamicSectionBasicWrapper = {
+const aboutUsSection: DynamicLayoutWithBasicWrapper = {
   id: 'about',
-  type: 'dynamic',
+  type: 'Dynamic',
 
-  wrap: 'basic',
+  wrap: 'Basic',
   header: 'about us',
   title: 'who am i?',
+
+  //   components: [],
 
   textArray: [
     [
@@ -67,58 +83,58 @@ const site: SiteConfig = {
     aboutUsSection,
     {
       id: 'services',
-      type: 'blank',
+      type: 'Blank',
 
-      wrap: 'basic',
+      wrap: 'Basic',
       header: 'what i do?',
       title: 'Here are some of my expertise',
     },
 
     {
       id: 'skills',
-      type: 'blank',
+      type: 'Blank',
 
-      wrap: 'basic',
+      wrap: 'Basic',
       header: 'my specialty',
       title: 'my skills',
     },
     {
       id: 'education',
-      type: 'blank',
+      type: 'Blank',
 
-      wrap: 'basic',
+      wrap: 'Basic',
       header: 'education',
       title: 'education',
     },
     {
       id: 'experience',
-      type: 'blank',
+      type: 'Blank',
 
-      wrap: 'basic',
+      wrap: 'Basic',
       header: 'experience',
       title: 'work experience',
     },
     {
       id: 'work',
-      type: 'blank',
+      type: 'Blank',
 
-      wrap: 'basic',
+      wrap: 'Basic',
       header: 'my work',
       title: 'recent work',
     },
     {
       id: 'blog',
-      type: 'blank',
+      type: 'Blank',
 
-      wrap: 'basic',
+      wrap: 'Basic',
       header: 'read',
       title: 'recent blog',
     },
     {
       id: 'contact',
-      type: 'blank',
+      type: 'Blank',
 
-      wrap: 'basic',
+      wrap: 'Basic',
       header: 'get in touch',
       title: 'contact',
     },

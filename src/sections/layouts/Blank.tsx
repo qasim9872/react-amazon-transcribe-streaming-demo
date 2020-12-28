@@ -1,5 +1,4 @@
 import React from 'react';
-import { BlankSection } from '../../interfaces/Section';
 
 function getRandomColor() {
   const letters = '0123456789ABCDEF';
@@ -10,7 +9,10 @@ function getRandomColor() {
   return color;
 }
 
-const Blank: React.FC<BlankSection> = (details) => {
+const Blank: React.FC<{
+  id: string;
+  type: 'Blank';
+}> = (details) => {
   return (
     <div style={{ backgroundColor: getRandomColor() }}>
       {' '}

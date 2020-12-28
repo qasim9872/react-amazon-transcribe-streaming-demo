@@ -1,8 +1,11 @@
 import React from 'react';
 import useAuthorConfig from '../../hooks/use-author-config';
-import { DynamicSection } from '../../interfaces/Section';
 
-const Dynamic: React.FC<DynamicSection> = (details) => {
+const Dynamic: React.FC<{
+  id: string;
+  type: 'Dynamic';
+  textArray: string[];
+}> = (details) => {
   const author = useAuthorConfig();
 
   return (
