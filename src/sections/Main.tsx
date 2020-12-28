@@ -1,6 +1,6 @@
 import React from 'react';
 import useSiteConfig from '../hooks/use-site-config';
-import { buildAndWrapLayout } from './helper';
+import { buildAndWrapLayout } from '../components/builders/index';
 
 const MainSection: React.FC = () => {
   const siteConfig = useSiteConfig();

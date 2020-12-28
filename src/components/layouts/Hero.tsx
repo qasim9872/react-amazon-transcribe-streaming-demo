@@ -1,9 +1,9 @@
 import React, { ComponentProps } from 'react';
-import Carousel from '../../components/hero/CarouselWrapper';
+import Carousel from '../hero/CarouselWrapper';
 
 const Hero: React.FC<{
   id: string;
-  type: 'Hero';
+  layoutName: 'Hero';
   slides: ComponentProps<typeof Carousel>['slides'];
   cta: ComponentProps<typeof Carousel>['cta'];
 }> = (details) => {

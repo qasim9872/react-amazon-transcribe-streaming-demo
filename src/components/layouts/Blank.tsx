@@ -11,7 +11,7 @@ function getRandomColor() {
 
 const Blank: React.FC<{
   id: string;
-  type: 'Blank';
+  layoutName: 'Blank';
 }> = (details) => {
   return (
     <div style={{ backgroundColor: getRandomColor() }}>

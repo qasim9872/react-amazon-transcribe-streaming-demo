@@ -4,8 +4,8 @@ import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
 import { download } from './icons.svg';
 
-import layouts, { Layout } from '../sections/layouts';
-import wrappers, { Wrapper } from '../sections/wrappers';
+import layouts, { Layout } from '../components/layouts';
+import wrappers, { Wrapper } from '../components/wrappers';
 
 type HeroLayout = ComponentProps<typeof layouts.Hero>;
 type DynamicLayout = ComponentProps<typeof layouts.Dynamic>;
@@ -28,7 +28,7 @@ export const CallToAction = { text: 'Download CV', link: '', icon: download };
 
 const heroSection: HeroLayoutWithNoneWrapper = {
   id: 'home',
-  type: 'Hero',
+  layoutName: 'Hero',
 
   wrap: 'None',
 
@@ -49,7 +49,7 @@ const heroSection: HeroLayoutWithNoneWrapper = {
 
 const aboutUsSection: DynamicLayoutWithBasicWrapper = {
   id: 'about',
-  type: 'Dynamic',
+  layoutName: 'Dynamic',
 
   wrap: 'Basic',
   header: 'about us',
@@ -57,7 +57,7 @@ const aboutUsSection: DynamicLayoutWithBasicWrapper = {
 
   components: [
     {
-      name: 'AboutText',
+      componentName: 'AboutText',
       textOrTextArray: [
         [
           'Ever since I was young, software development has been my passion.',
@@ -86,7 +86,7 @@ const site: SiteConfig = {
     aboutUsSection,
     {
       id: 'services',
-      type: 'Blank',
+      layoutName: 'Blank',
 
       wrap: 'Basic',
       header: 'what i do?',
@@ -95,7 +95,7 @@ const site: SiteConfig = {
 
     {
       id: 'skills',
-      type: 'Blank',
+      layoutName: 'Blank',
 
       wrap: 'Basic',
       header: 'my specialty',
@@ -103,7 +103,7 @@ const site: SiteConfig = {
     },
     {
       id: 'education',
-      type: 'Blank',
+      layoutName: 'Blank',
 
       wrap: 'Basic',
       header: 'education',
@@ -111,7 +111,7 @@ const site: SiteConfig = {
     },
     {
       id: 'experience',
-      type: 'Blank',
+      layoutName: 'Blank',
 
       wrap: 'Basic',
       header: 'experience',
@@ -119,7 +119,7 @@ const site: SiteConfig = {
     },
     {
       id: 'work',
-      type: 'Blank',
+      layoutName: 'Blank',
 
       wrap: 'Basic',
       header: 'my work',
@@ -127,7 +127,7 @@ const site: SiteConfig = {
     },
     {
       id: 'blog',
-      type: 'Blank',
+      layoutName: 'Blank',
 
       wrap: 'Basic',
       header: 'read',
@@ -135,7 +135,7 @@ const site: SiteConfig = {
     },
     {
       id: 'contact',
-      type: 'Blank',
+      layoutName: 'Blank',
 
       wrap: 'Basic',
       header: 'get in touch',

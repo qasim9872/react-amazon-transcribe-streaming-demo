@@ -1,10 +1,10 @@
 import React from 'react';
-import { Components } from '../../components/ui-components';
-import builder from '../../components/component-builder';
+import { Components } from '../ui-components';
+import builder from '../builders/component-builder';
 
 const Dynamic: React.FC<{
   id: string;
-  type: 'Dynamic';
+  layoutName: 'Dynamic';
   components: Components;
 }> = ({ components }) => {
   return <>{components.map(builder)}</>;

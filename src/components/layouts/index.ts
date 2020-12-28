@@ -5,8 +5,8 @@ import Blank from './Blank';
 
 const layouts = {
   Hero,
-  Dynamic,
   Blank,
+  Dynamic,
 };
 
 export default layouts;

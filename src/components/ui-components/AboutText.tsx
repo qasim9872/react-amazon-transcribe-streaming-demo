@@ -2,7 +2,7 @@ import React from 'react';
 import useAuthorConfig from '../../hooks/use-author-config';
 
 const About: React.FC<{
-  name: 'AboutText';
+  componentName: 'AboutText';
   textOrTextArray: string[] | string;
 }> = ({ textOrTextArray }) => {
   const author = useAuthorConfig();
