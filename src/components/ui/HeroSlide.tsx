@@ -7,7 +7,7 @@ const HeroSlideElem: React.FC<{
 }> = ({ callToActionElem, slideData }) => {
   return (
     <div
-      className="flex flex-col justify-center w-full bg-cover bg-center h-screen object-cover"
+      className="flex flex-col justify-center w-full bg-cover bg-center h-screen object-cover font-bold"
       style={{ backgroundImage: `url(${slideData.image})` }}
     >
       <Fade direction="up" delay={250}>
