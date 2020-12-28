@@ -1,10 +1,8 @@
 import { ComponentProps } from 'react';
-import CallToAction from './CallToAction';
-import HeroSlide from './HeroSlide';
+import AboutText from './AboutText';
 
 const components = {
-  CallToAction,
-  HeroSlide,
+  AboutText,
 };
 
 export default components;
@@ -12,7 +10,9 @@ export default components;
 // types
 
 export type ComponentType = keyof typeof components;
+export type ComponentName = { name: string };
 export type Component = ComponentProps<
   typeof components[keyof typeof components]
 >;
+
 export type Components = Component[];

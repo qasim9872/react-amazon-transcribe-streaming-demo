@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import Carousel from '../../components/CarouselWrapper';
+import Carousel from '../../components/hero/CarouselWrapper';
 
 const Hero: React.FC<{
   id: string;

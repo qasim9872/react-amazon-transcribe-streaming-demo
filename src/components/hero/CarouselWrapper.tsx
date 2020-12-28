@@ -2,8 +2,8 @@ import React, { ComponentProps } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
-import CallToAction from './ui/CallToAction';
-import HeroSlide from './ui/HeroSlide';
+import CallToAction from './CallToAction';
+import HeroSlide from './HeroSlide';
 
 const CarouselWrapper: React.FC<{
   slides: ComponentProps<typeof HeroSlide>['slideData'][];
