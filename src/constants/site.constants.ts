@@ -29,7 +29,12 @@ export interface SiteConfig {
   description: string;
 }
 
-export const CallToAction = { text: 'Download CV', link: '', icon: download };
+export const CallToAction = {
+  text: 'View CV',
+  link:
+    'https://drive.google.com/file/d/15D4j9e34zYCzpslnX_5zqAKgX2jxuG5x/view?usp=sharing',
+  icon: download,
+};
 
 const heroSection: HeroLayoutWithNoneWrapper = {
   id: 'home',
