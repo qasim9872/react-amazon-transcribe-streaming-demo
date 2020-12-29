@@ -7,7 +7,7 @@ const Dynamic: React.FC<{
   layoutName: 'Dynamic';
   components: Components;
 }> = ({ components }) => {
-  return <>{components.map(builder)}</>;
+  return <>{components.map((component, index) => builder(component, index))}</>;
 };
 
 export default Dynamic;
