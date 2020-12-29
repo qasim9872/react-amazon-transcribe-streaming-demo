@@ -2,7 +2,12 @@ import { ComponentProps } from 'react';
 
 import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
-import { database, download, phone } from './icons.svg';
+import { download } from './icons.svg';
+
+import { ReactComponent as TravelIcon } from '../assets/icons/travel.svg';
+import { ReactComponent as GamesIcon } from '../assets/icons/games.svg';
+import { ReactComponent as BadmintonIcon } from '../assets/icons/badminton.svg';
+import { ReactComponent as MusicIcon } from '../assets/icons/music.svg';
 
 import layouts, { Layout } from '../components/app/layouts';
 import wrappers, { Wrapper } from '../components/app/wrappers';
@@ -80,29 +85,29 @@ const aboutUsSection: DynamicLayoutWithBasicWrapper = {
       bottomLineDivConfig: [
         {
           componentName: 'BottomLineDiv',
-          icon: phone,
-          text: 'place holder 1',
+          Icon: TravelIcon,
+          text: 'Traveler',
           color: 'red',
           fadeDirection: 'left',
         },
         {
           componentName: 'BottomLineDiv',
-          icon: phone,
-          text: 'place holder 2',
+          Icon: GamesIcon,
+          text: 'Gamer',
           color: 'green',
           fadeDirection: 'up',
         },
         {
           componentName: 'BottomLineDiv',
-          icon: database,
-          text: 'Software',
+          Icon: BadmintonIcon,
+          text: 'Badminton',
           color: 'blue',
           fadeDirection: 'right',
         },
         {
           componentName: 'BottomLineDiv',
-          icon: phone,
-          text: 'Application',
+          Icon: MusicIcon,
+          text: 'Music',
           color: 'yellow',
           fadeDirection: 'down',
         },

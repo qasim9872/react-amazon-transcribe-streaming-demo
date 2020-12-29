@@ -3,11 +3,11 @@ import { Fade } from 'react-awesome-reveal';
 
 const BottomLineDiv: React.FC<{
   componentName: 'BottomLineDiv';
-  icon: JSX.Element;
+  Icon: React.FC<React.SVGProps<SVGSVGElement> & { title?: string }>;
   text: string;
   color: string;
   fadeDirection: ComponentProps<typeof Fade>['direction'];
-}> = ({ icon, text, color, fadeDirection }) => {
+}> = ({ Icon, text, color, fadeDirection }) => {
   return (
     // TODO - account for position when inside flex
     <Fade direction={fadeDirection} className="flex-grow mx-1 my-3">
@@ -20,7 +20,7 @@ const BottomLineDiv: React.FC<{
         ].join(' ')}
       >
         <div className={`w-8 h-8 py-4 mr-2 fill-current text-${color}-600`}>
-          {icon}
+          <Icon />
         </div>
         <span className="mr-2 mt-8">{text}</span>
       </div>
