@@ -1,5 +1,5 @@
 import React from 'react';
-import useAuthorConfig from '../../../hooks/use-author-config';
+import useAuthorConfig from '../../../../hooks/use-author-config';
 
 export const NavImage: React.FC<{ src: string }> = ({ src }) => {
   return (

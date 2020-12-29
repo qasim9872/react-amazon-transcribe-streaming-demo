@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from './NavLink';
-import useSiteConfig from '../../../../hooks/use-site-config';
-import { mapRoute } from '../../../../utils/helpers';
+import useSiteConfig from '../../../../../hooks/use-site-config';
+import { mapRoute } from '../../../../../utils/helpers';
 
 export const NavLinks: React.FC = () => {
   const site = useSiteConfig();

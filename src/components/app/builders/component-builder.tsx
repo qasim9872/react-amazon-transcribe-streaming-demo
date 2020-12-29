@@ -1,5 +1,5 @@
 import React from 'react';
-import components, { BaseComponent } from '../ui-components';
+import components, { BaseComponent } from '../../ui-components';
 
 export function buildComponent(details: BaseComponent) {
   const MyComponent = components[details.componentName];

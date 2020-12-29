@@ -4,8 +4,8 @@ import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
 import { download } from './icons.svg';
 
-import layouts, { Layout } from '../components/layouts';
-import wrappers, { Wrapper } from '../components/wrappers';
+import layouts, { Layout } from '../components/app/layouts';
+import wrappers, { Wrapper } from '../components/app/wrappers';
 
 type HeroLayout = ComponentProps<typeof layouts.Hero>;
 type DynamicLayout = ComponentProps<typeof layouts.Dynamic>;

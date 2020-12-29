@@ -1,5 +1,5 @@
 import React from 'react';
-import { mapRoute } from '../../utils/helpers';
+import { mapRoute } from '../../../utils/helpers';
 import { Layout } from '../layouts';
 import { Wrapper } from '../wrappers';
 import { buildLayout } from './layout-builder';

@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import SideNav from './components/base/SideNav/index';
+import SideNav from './components/app/base/SideNav/index';
 import StoreProviders from './store';
 import useSiteConfig from './hooks/use-site-config';
-import { buildAndWrapLayout } from './components/builders/index';
+import { buildAndWrapLayout } from './components/app/builders/index';
 
 const Main: React.FC = () => {
   const siteConfig = useSiteConfig();
