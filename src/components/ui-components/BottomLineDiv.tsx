@@ -13,10 +13,10 @@ const BottomLineDiv: React.FC<{
     <Fade direction={fadeDirection} className="flex-grow mx-1 my-3">
       <div
         className={[
-          'flex flex-col font-bold border-b-2 shadow-xl pt-2 pb-12 px-8',
+          'flex flex-col font-bold rounded border-b-2 shadow-2xl pt-2 pb-12 px-8',
           `transition duration-500 ease-in-out hover:border-${color}-800`,
           'hover:transform hover:-translate-y-4',
-          `text-gray-800 border-${color}-600 `,
+          `text-gray-800 bg-gray-50 border-${color}-600 `,
         ].join(' ')}
       >
         <div className={`w-8 h-8 py-4 mr-2 fill-current text-${color}-600`}>

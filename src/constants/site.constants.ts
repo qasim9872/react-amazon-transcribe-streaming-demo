@@ -2,7 +2,7 @@ import { ComponentProps } from 'react';
 
 import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
-import { download, phone } from './icons.svg';
+import { database, download, phone } from './icons.svg';
 
 import layouts, { Layout } from '../components/app/layouts';
 import wrappers, { Wrapper } from '../components/app/wrappers';
@@ -48,7 +48,7 @@ const heroSection: HeroLayoutWithNoneWrapper = {
 };
 
 const aboutUsSection: DynamicLayoutWithBasicWrapper = {
-  id: 'about',
+  id: 'about me',
   layoutName: 'Dynamic',
 
   wrap: 'Basic',
@@ -82,28 +82,28 @@ const aboutUsSection: DynamicLayoutWithBasicWrapper = {
           componentName: 'BottomLineDiv',
           icon: phone,
           text: 'place holder 1',
-          color: 'blue',
+          color: 'red',
           fadeDirection: 'left',
         },
         {
           componentName: 'BottomLineDiv',
           icon: phone,
           text: 'place holder 2',
-          color: 'red',
+          color: 'green',
           fadeDirection: 'up',
         },
         {
           componentName: 'BottomLineDiv',
-          icon: phone,
+          icon: database,
           text: 'Software',
-          color: 'yellow',
+          color: 'blue',
           fadeDirection: 'right',
         },
         {
           componentName: 'BottomLineDiv',
           icon: phone,
           text: 'Application',
-          color: 'purple',
+          color: 'yellow',
           fadeDirection: 'down',
         },
       ],
@@ -117,15 +117,6 @@ const site: SiteConfig = {
   sections: [
     heroSection,
     aboutUsSection,
-    {
-      id: 'services',
-      layoutName: 'Blank',
-
-      wrap: 'Basic',
-      header: 'what i do?',
-      title: 'Here are some of my expertise',
-    },
-
     {
       id: 'skills',
       layoutName: 'Blank',
@@ -149,14 +140,6 @@ const site: SiteConfig = {
       wrap: 'Basic',
       header: 'experience',
       title: 'work experience',
-    },
-    {
-      id: 'work',
-      layoutName: 'Blank',
-
-      wrap: 'Basic',
-      header: 'my work',
-      title: 'recent work',
     },
     {
       id: 'blog',
