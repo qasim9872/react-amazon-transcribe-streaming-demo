@@ -1,13 +1,17 @@
 import React, { ComponentProps } from 'react';
 import { Fade } from 'react-awesome-reveal';
 
+import HexagonDiv from './helpers/HexagonDiv';
+import IconWrapper from './helpers/IconWrapper';
+
 const BottomLineDiv: React.FC<{
   componentName: 'BottomLineDiv';
+  iconDivShape?: 'none' | 'hexagon';
   Icon: React.FC<React.SVGProps<SVGSVGElement> & { title?: string }>;
-  text: string;
+  heading: string;
   color: string;
   fadeDirection: ComponentProps<typeof Fade>['direction'];
-}> = ({ Icon, text, color, fadeDirection }) => {
+}> = ({ Icon, heading, color, fadeDirection, iconDivShape = 'normal' }) => {
   return (
     // TODO - account for position when inside flex
     <Fade
@@ -23,10 +27,18 @@ const BottomLineDiv: React.FC<{
           `text-gray-800 bg-gray-50 border-${color}-600 `,
         ].join(' ')}
       >
-        <div className={`w-8 h-8 py-4 mr-2 fill-current text-${color}-600`}>
-          <Icon />
-        </div>
-        <span className="mr-2 mt-8 capitalize">{text}</span>
+        <IconWrapper className={`text-${color}-600`}>
+          {iconDivShape === 'hexagon' ? (
+            <HexagonDiv color={color}>
+              {' '}
+              <Icon />
+            </HexagonDiv>
+          ) : (
+            <Icon />
+          )}
+        </IconWrapper>
+
+        <span className="mr-2 mt-8 capitalize">{heading}</span>
       </div>
     </Fade>
   );

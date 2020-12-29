@@ -22,3 +22,11 @@ h3 {
     }
   }
 }
+
+.hexagon::before {
+  border-bottom-color: red !important;
+}
+
+.hexagon::after {
+  border-top-color: red !important;
+}

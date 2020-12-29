@@ -3,6 +3,7 @@ import { Wrapper } from '../../components/app/wrappers';
 
 import heroSection from './hero.constants';
 import aboutUsSection from './about-us.constants';
+import skillsSection from './skills.constants';
 
 type LayoutWithWrapper = Layout & Wrapper;
 
@@ -18,14 +19,7 @@ const site: SiteConfig = {
   sections: [
     heroSection,
     aboutUsSection,
-    {
-      id: 'skills',
-      layoutName: 'Blank',
-
-      wrap: 'Basic',
-      header: 'my specialty',
-      title: 'my skills',
-    },
+    skillsSection,
     {
       id: 'education',
       layoutName: 'Blank',

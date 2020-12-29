@@ -7,8 +7,8 @@ const BottomLineDivWrapper: React.FC<{
 }> = ({ bottomLineDivConfig }) => {
   return (
     <div className="py-10 flex flex-col lg:flex-row lg:flex-wrap justify-between">
-      {bottomLineDivConfig.map((config, index) => (
-        <BottomLineDiv key={config.text} {...config}>
+      {bottomLineDivConfig.map((config) => (
+        <BottomLineDiv key={config.heading} {...config}>
           {' '}
         </BottomLineDiv>
       ))}

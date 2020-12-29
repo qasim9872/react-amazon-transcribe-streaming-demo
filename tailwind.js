@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 
 const sans = [
   'ui-sans-serif',
@@ -143,6 +144,7 @@ module.exports = {
       2: '2px',
       4: '4px',
       8: '8px',
+      16: '16px',
     },
     boxShadow: {
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
@@ -924,6 +926,27 @@ module.exports = {
     width: ['responsive'],
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
+    extend: {
+      position: ['before', 'after'],
+      borderWidth: ['before', 'after'],
+      borderColor: ['before', 'after'],
+      borderStyle: ['before', 'after'],
+      width: ['before', 'after'],
+      height: ['before', 'after'],
+      inset: ['before', 'after'],
+    },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-pseudo-elements'),
+    plugin(function ({ addUtilities }) {
+      addUtilities(
+        {
+          '.empty-content': {
+            content: "''",
+          },
+        },
+        ['before', 'after'],
+      );
+    }),
+  ],
 };
