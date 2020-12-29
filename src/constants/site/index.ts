@@ -2,7 +2,7 @@ import { Layout } from '../../components/app/layouts';
 import { Wrapper } from '../../components/app/wrappers';
 
 import heroSection from './hero.constants';
-import aboutUsSection from './about-us.constants';
+import aboutMeSection from './about-me.constants';
 import skillsSection from './skills.constants';
 
 type LayoutWithWrapper = Layout & Wrapper;
@@ -18,7 +18,7 @@ const site: SiteConfig = {
   description: 'Developing applications, one idea at a time',
   sections: [
     heroSection,
-    aboutUsSection,
+    aboutMeSection,
     skillsSection,
     {
       id: 'education',

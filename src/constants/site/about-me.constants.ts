@@ -1,10 +1,5 @@
 import { ComponentProps } from 'react';
 
-import { ReactComponent as TravelIcon } from '../../assets/icons/travel.svg';
-import { ReactComponent as GamesIcon } from '../../assets/icons/games.svg';
-import { ReactComponent as BadmintonIcon } from '../../assets/icons/badminton.svg';
-import { ReactComponent as MusicIcon } from '../../assets/icons/music.svg';
-
 import layouts from '../../components/app/layouts';
 import wrappers from '../../components/app/wrappers';
 
@@ -13,7 +8,7 @@ type BasicWrapper = ComponentProps<typeof wrappers.Basic>;
 
 type DynamicLayoutWithBasicWrapper = DynamicLayout & BasicWrapper;
 
-const aboutUsConfig: DynamicLayoutWithBasicWrapper = {
+const aboutMeConfig: DynamicLayoutWithBasicWrapper = {
   id: 'about me',
   layoutName: 'Dynamic',
 
@@ -46,28 +41,28 @@ const aboutUsConfig: DynamicLayoutWithBasicWrapper = {
       bottomLineDivConfig: [
         {
           componentName: 'BottomLineDiv',
-          Icon: TravelIcon,
+          icon: 'Travel',
           heading: 'Traveler',
           color: 'red',
           fadeDirection: 'left',
         },
         {
           componentName: 'BottomLineDiv',
-          Icon: GamesIcon,
+          icon: 'Games',
           heading: 'Gamer',
           color: 'green',
           fadeDirection: 'up',
         },
         {
           componentName: 'BottomLineDiv',
-          Icon: BadmintonIcon,
+          icon: 'Badminton',
           heading: 'Badminton player',
           color: 'blue',
           fadeDirection: 'right',
         },
         {
           componentName: 'BottomLineDiv',
-          Icon: MusicIcon,
+          icon: 'Music',
           heading: 'Music lover',
           color: 'yellow',
           fadeDirection: 'down',
@@ -77,4 +72,4 @@ const aboutUsConfig: DynamicLayoutWithBasicWrapper = {
   ],
 };
 
-export default aboutUsConfig;
+export default aboutMeConfig;

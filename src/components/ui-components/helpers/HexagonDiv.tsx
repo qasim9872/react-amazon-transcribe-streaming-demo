@@ -1,38 +1,34 @@
 import React from 'react';
 
-const SHARED_BEFORE_AFTER = [
-  'empty-content',
-  'absolute',
-  'left-0',
-  'w-0',
-  'h-0',
-  'border-solid',
-  'border-transparent',
-  'border-l-16',
-  'border-r-16',
-];
-const BEFORE = [...SHARED_BEFORE_AFTER, '-top-8', 'border-b-8']
-  .map((className) => `before:${className}`)
-  .join(' ');
-const AFTER = [...SHARED_BEFORE_AFTER, '-bottom-8', 'border-t-8']
-  .map((className) => `after:${className}`)
-  .join(' ');
+type Svg = React.SVGProps<SVGSVGElement> & { className: string };
 
-const HexagonDiv: React.FC<{ color: string }> = ({ children, color }) => {
+const HexagonDiv: React.FC<{
+  color: string;
+  Icon: React.FC<Svg>;
+}> = ({ Icon, color }) => {
   return (
-    <div
-      className={[
-        BEFORE,
-        `hexagon relative bg-${color}-600 text-white`,
-        AFTER,
-      ].join(' ')}
-      style={{
-        borderBottomColor: 'red',
-        borderTopColor: 'red',
-      }}
+    <svg
+      className={`w-24 h-24 py-4 mr-2 fill-current text-${color}-600`}
+      width="auto"
+      height="auto"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      style={{ fill: '#010002;' }}
     >
-      {children}
-    </div>
+      <g style={{ fill: '#010002;' }}>
+        <g style={{ fill: '#010002;' }}>
+          <path
+            style={{ fill: '#010002;' }}
+            d="M485.291,129.408l-224-128c-3.285-1.877-7.296-1.877-10.581,0l-224,128c-3.328,1.899-5.376,5.44-5.376,9.259v234.667
+			c0,3.819,2.048,7.36,5.376,9.259l224,128c1.643,0.939,3.456,1.408,5.291,1.408c1.835,0,3.648-0.469,5.291-1.408l224-128
+			c3.328-1.899,5.376-5.44,5.376-9.259V138.667C490.667,134.848,488.619,131.307,485.291,129.408z M469.333,367.147L256,489.045
+			L42.667,367.147V144.853L256,22.955l213.333,121.899V367.147z"
+          />
+        </g>
+      </g>
+      <Icon className="w-16 h-16 py-4 mr-2 fill-current text-white" />
+      <div />
+    </svg>
   );
 };
 

@@ -1,10 +1,5 @@
 import { ComponentProps } from 'react';
 
-import { ReactComponent as TravelIcon } from '../../assets/icons/travel.svg';
-import { ReactComponent as GamesIcon } from '../../assets/icons/games.svg';
-import { ReactComponent as BadmintonIcon } from '../../assets/icons/badminton.svg';
-import { ReactComponent as MusicIcon } from '../../assets/icons/music.svg';
-
 import layouts from '../../components/app/layouts';
 import wrappers from '../../components/app/wrappers';
 
@@ -27,32 +22,28 @@ const skills: DynamicLayoutWithBasicWrapper = {
       bottomLineDivConfig: [
         {
           componentName: 'BottomLineDiv',
-          iconDivShape: 'hexagon',
-          Icon: TravelIcon,
+          icon: 'Travel',
           heading: 'Traveler',
           color: 'red',
           fadeDirection: 'left',
         },
         {
           componentName: 'BottomLineDiv',
-          iconDivShape: 'hexagon',
-          Icon: GamesIcon,
+          icon: 'Games',
           heading: 'Gamer',
           color: 'green',
           fadeDirection: 'up',
         },
         {
           componentName: 'BottomLineDiv',
-          iconDivShape: 'hexagon',
-          Icon: BadmintonIcon,
+          icon: 'Badminton',
           heading: 'Badminton player',
           color: 'blue',
           fadeDirection: 'right',
         },
         {
           componentName: 'BottomLineDiv',
-          iconDivShape: 'hexagon',
-          Icon: MusicIcon,
+          icon: 'Music',
           heading: 'Music lover',
           color: 'yellow',
           fadeDirection: 'down',
