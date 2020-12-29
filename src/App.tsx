@@ -1,8 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SideNav from './components/base/SideNav/index';
-import Main from './sections/Main';
 import StoreProviders from './store';
+import useSiteConfig from './hooks/use-site-config';
+import { buildAndWrapLayout } from './components/builders/index';
+
+const Main: React.FC = () => {
+  const siteConfig = useSiteConfig();
+
+  const sections = siteConfig.sections.map(buildAndWrapLayout);
+
+  return <div className="flex-grow">{sections}</div>;
+};
 
 function App() {
   return (
