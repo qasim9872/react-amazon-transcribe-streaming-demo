@@ -11,12 +11,14 @@ const Basic: React.FC<{
       <div className="flex flex-col justify-around uppercase max-w-1/2">
         <Fade
           direction="left"
+          triggerOnce={true}
           className="text-xs pb-4 text-gray-400 tracking-5px"
         >
           <span>{header}</span>
         </Fade>
         <Fade
           direction="up"
+          triggerOnce={true}
           duration={1500}
           className="text-xl font-bold tracking-5px"
         >

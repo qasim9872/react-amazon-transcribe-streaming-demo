@@ -2,7 +2,7 @@ import { ComponentProps } from 'react';
 
 import heroImage1 from '../assets/images/hero.jpg';
 import heroImage2 from '../assets/images/hero_2.jpeg';
-import { download } from './icons.svg';
+import { download, phone } from './icons.svg';
 
 import layouts, { Layout } from '../components/app/layouts';
 import wrappers, { Wrapper } from '../components/app/wrappers';
@@ -52,7 +52,7 @@ const aboutUsSection: DynamicLayoutWithBasicWrapper = {
   layoutName: 'Dynamic',
 
   wrap: 'Basic',
-  header: 'about us',
+  header: 'about me',
   title: 'who am i?',
 
   components: [
@@ -73,6 +73,39 @@ const aboutUsSection: DynamicLayoutWithBasicWrapper = {
           'Driven by my passion, I finished university and officially started a job as a software engineer at Accenture.',
           'Working on innovative projects that use technology such as Artificial Intelligence, I  strive to learn and improve.',
         ].join(' '),
+      ],
+    },
+    {
+      componentName: 'BottomLineDivWrapper',
+      bottomLineDivConfig: [
+        {
+          componentName: 'BottomLineDiv',
+          icon: phone,
+          text: 'place holder 1',
+          color: 'blue',
+          fadeDirection: 'left',
+        },
+        {
+          componentName: 'BottomLineDiv',
+          icon: phone,
+          text: 'place holder 2',
+          color: 'red',
+          fadeDirection: 'up',
+        },
+        {
+          componentName: 'BottomLineDiv',
+          icon: phone,
+          text: 'Software',
+          color: 'yellow',
+          fadeDirection: 'right',
+        },
+        {
+          componentName: 'BottomLineDiv',
+          icon: phone,
+          text: 'Application',
+          color: 'purple',
+          fadeDirection: 'down',
+        },
       ],
     },
   ],
