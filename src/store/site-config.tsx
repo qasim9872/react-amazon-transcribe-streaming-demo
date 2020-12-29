@@ -1,5 +1,5 @@
 import * as React from 'react';
-import siteConfig from '../constants/site.constants';
+import siteConfig from '../constants/site';
 
 export const SiteConfigContext = React.createContext(siteConfig);
 

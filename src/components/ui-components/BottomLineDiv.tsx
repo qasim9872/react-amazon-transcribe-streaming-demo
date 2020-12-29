@@ -22,7 +22,7 @@ const BottomLineDiv: React.FC<{
         <div className={`w-8 h-8 py-4 mr-2 fill-current text-${color}-600`}>
           <Icon />
         </div>
-        <span className="mr-2 mt-8">{text}</span>
+        <span className="mr-2 mt-8 capitalize">{text}</span>
       </div>
     </Fade>
   );
