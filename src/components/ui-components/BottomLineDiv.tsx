@@ -10,7 +10,11 @@ const BottomLineDiv: React.FC<{
 }> = ({ Icon, text, color, fadeDirection }) => {
   return (
     // TODO - account for position when inside flex
-    <Fade direction={fadeDirection} className="flex-grow mx-1 my-3">
+    <Fade
+      triggerOnce={true}
+      direction={fadeDirection}
+      className="flex-grow mx-1 my-3"
+    >
       <div
         className={[
           'flex flex-col font-bold rounded border-b-2 shadow-2xl pt-2 pb-12 px-8',

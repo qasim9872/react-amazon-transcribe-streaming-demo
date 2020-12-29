@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import useAuthorConfig from '../../hooks/use-author-config';
 
 const Paragraph: React.FC<{ text: string }> = ({ text }) => {
@@ -17,6 +18,11 @@ const About: React.FC<{
     ? textOrTextArray
     : [textOrTextArray];
 
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
   const [textArrayIndex, setTextArrayIndex] = useState(0);
   const [completedTextArray, setCompletedTextArray] = useState<string[]>([]);
 
@@ -25,6 +31,10 @@ const About: React.FC<{
 
   useEffect(() => {
     const interval = setInterval(() => {
+      if (!inView) {
+        return;
+      }
+
       if (!(textArrayIndex < textArray.length)) {
         clearInterval(interval);
         return;
@@ -53,7 +63,7 @@ const About: React.FC<{
   });
 
   return (
-    <div>
+    <div ref={ref}>
       <p className="py-2">
         I am
         <span className="font-bold capitalize"> {author.name}</span>, and I am a
