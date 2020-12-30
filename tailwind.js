@@ -957,7 +957,8 @@ module.exports = {
     extend: {
       transform: ['group-hover'],
       scale: ['group-hover'],
-      fontSize: ['group-hover'],
+      fontSize: ['group-hover', 'hover'],
+      fontWeight: ['hover'],
       borderRadius: ['after'],
       backgroundColor: ['after'],
       position: ['before', 'after'],

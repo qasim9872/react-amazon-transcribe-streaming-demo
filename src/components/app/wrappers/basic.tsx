@@ -14,7 +14,11 @@ const Basic: React.FC<{
           triggerOnce={true}
           className="text-xs pb-4 text-gray-400 tracking-5px"
         >
-          <span>{header}</span>
+          <div>
+            <span className="transition-all duration-500 ease-in-out hover:text-black hover:text-lg hover:font-bold">
+              {header}
+            </span>
+          </div>
         </Fade>
         <Fade
           direction="up"
@@ -22,7 +26,11 @@ const Basic: React.FC<{
           duration={1500}
           className="text-xl font-bold tracking-5px"
         >
-          <span>{title}</span>
+          <div>
+            <span className="transition-all duration-500 ease-in-out hover:text-black hover:text-2xl hover:font-bold">
+              {title}
+            </span>
+          </div>
         </Fade>
       </div>
       <div className="mt-16">{children}</div>
