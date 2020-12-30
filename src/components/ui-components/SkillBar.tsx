@@ -45,7 +45,7 @@ const SkillWrapper: React.FC<{
             }}
           >
             <span
-              className={`absolute right-0 -top-22px text-xs text-${color}-400`}
+              className={`absolute right-0 -top-22px text-xs text-${color}-400 transition-all duration-500 ease-in-out group-hover:transform group-hover:scale-110`}
             >
               {percentage}%
             </span>

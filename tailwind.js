@@ -955,6 +955,8 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
     extend: {
+      transform: ['group-hover'],
+      scale: ['group-hover'],
       fontSize: ['group-hover'],
       borderRadius: ['after'],
       backgroundColor: ['after'],
