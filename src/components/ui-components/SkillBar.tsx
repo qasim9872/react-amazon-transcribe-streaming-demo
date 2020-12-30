@@ -21,7 +21,6 @@ const SkillWrapper: React.FC<{
 
   return (
     <Fade
-      triggerOnce={true}
       direction={fadeDirection}
       className="group flex flex-col lg:w-1/2 pr-5 pb-5"
       duration={1000}
