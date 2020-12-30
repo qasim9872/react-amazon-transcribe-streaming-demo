@@ -136,6 +136,7 @@ module.exports = {
       xl: '0.75rem',
       '2xl': '1rem',
       '3xl': '1.5rem',
+      '50Percent': '50%',
       full: '9999px',
     },
     borderWidth: {
@@ -381,8 +382,10 @@ module.exports = {
       '3/6': '50%',
       '4/6': '66.666667%',
       '5/6': '83.333333%',
+      '6px': '6px',
       full: '100%',
       screen: '100vh',
+      '10px': '10px',
     }),
     inset: (theme, { negative }) => ({
       auto: 'auto',
@@ -402,6 +405,8 @@ module.exports = {
       '-2/4': '-50%',
       '-3/4': '-75%',
       '-full': '-100%',
+      '-2px': '-2px',
+      '-22px': '-22px',
     }),
     keyframes: {
       spin: {
@@ -728,6 +733,7 @@ module.exports = {
       screen: '100vw',
       min: 'min-content',
       max: 'max-content',
+      '10px': '10px',
     }),
     zIndex: {
       auto: 'auto',
@@ -927,6 +933,8 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
     extend: {
+      borderRadius: ['after'],
+      backgroundColor: ['after'],
       position: ['before', 'after'],
       borderWidth: ['before', 'after'],
       borderColor: ['before', 'after'],

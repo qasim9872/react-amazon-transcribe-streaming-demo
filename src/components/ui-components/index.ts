@@ -3,10 +3,15 @@ import AboutText from './AboutText';
 import BottomLineDiv from './BottomLineDiv';
 import BottomLineDivWrapper from './BottomLineDivWrapper';
 
+import SkillBar from './SkillBar';
+import SkillBarWrapper from './SkillBarWrapper';
+
 const components = {
   AboutText,
   BottomLineDiv,
   BottomLineDivWrapper,
+  SkillBar,
+  SkillBarWrapper,
 };
 
 export default components;
