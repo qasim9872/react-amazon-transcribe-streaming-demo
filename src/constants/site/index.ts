@@ -4,6 +4,7 @@ import { Wrapper } from '../../components/app/wrappers';
 import heroSection from './hero.constants';
 import aboutMeSection from './about-me.constants';
 import skillsSection from './skills.constants';
+import experienceSection from './experience.constants';
 import educationSection from './education.constants';
 
 type LayoutWithWrapper = Layout & Wrapper;
@@ -21,14 +22,15 @@ const site: SiteConfig = {
     heroSection,
     aboutMeSection,
     skillsSection,
+    experienceSection,
     educationSection,
     {
-      id: 'experience',
+      id: 'projects',
       layoutName: 'Blank',
 
       wrap: 'Basic',
-      header: 'experience',
-      title: 'work experience',
+      header: 'my projects',
+      title: 'recent projects',
     },
     {
       id: 'blog',

@@ -13,8 +13,8 @@ const skills: DynamicLayoutWithBasicWrapper = {
   layoutName: 'Dynamic',
 
   wrap: 'Basic',
-  header: 'my specialty',
-  title: 'my skills',
+  header: 'my skills',
+  title: 'what i know?',
 
   components: [
     {
