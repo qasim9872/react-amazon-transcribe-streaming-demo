@@ -1,51 +1,79 @@
 import React, { ComponentProps, useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
-
-const ListItemDetails: React.FC<{
-  open: boolean;
-  institute: string;
-  description: string;
-  start: Date;
-  end: Date;
-  grade: string;
-}> = ({ open, description }) => {
-  return (
-    <div
-      className={`border-gray-200 border transition-all ease-in-out duration-500 ${
-        open ? '' : 'h-0 hidden'
-      }`}
-    >
-      {description}
-    </div>
-  );
-};
+import { Button } from 'react-scroll';
 
 const ListItem: React.FC<{
   componentName: 'ListItem';
   index?: number;
   institute: string;
+  instituteUrl: string;
+  instituteLogo: string;
   courseName: string;
   description: string;
   start: Date;
   end: Date;
   grade: string;
-}> = ({ courseName, index = 0, ...props }) => {
+}> = ({ index = 0, ...props }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="cursor-pointer flex flex-col mx-1 transition-all ease-in-out duration-500">
-      <div
-        role="button"
-        className={`p-4 my-3 border-gray-200 shadow-xl border ${
-          open ? 'bg-blue-400 text-white' : 'bg-gray-100 hover:bg-blue-200'
-        }`}
-        onClick={() => setOpen(!open)}
-        onKeyDown={() => setOpen(!open)}
-        tabIndex={index}
-      >
-        {courseName}
+    <div className="shadow-md bg-gray-800 text-gray-200 my-8 p-6 rounded">
+      <div className="flex items-center justify-between">
+        <div className="flex flex-grow items-center">
+          <a href={props.instituteUrl} className="w-auto h-20 mr-4">
+            <img
+              alt={props.institute}
+              className="w-auto h-20 mr-4"
+              src={props.instituteLogo}
+            />
+          </a>
+
+          <div className="flex flex-grow flex-col description">
+            <div className="flex flex-grow flex-row items-center justify-between">
+              <h1 className="text-2xl font-semibold mr-4">
+                {props.courseName}
+              </h1>
+              <div className="rounded-full bg-purple-600 text-gray-100 mr-3">
+                <span className="font-semibold p-3">{props.grade}</span>
+              </div>
+            </div>
+            <p>{props.institute}</p>
+          </div>
+        </div>
+
+        <div
+          className="ml-4"
+          role="button"
+          onClick={() => setOpen(!open)}
+          onKeyDown={() => setOpen(!open)}
+          tabIndex={index}
+        >
+          <div className="flex items-center cursor-pointer px-3 py-2 text-gray-200 hover:text-gray-600">
+            <svg
+              className="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
-      <ListItemDetails open={open} {...props} />
+
+      {/* collapsible div */}
+      {open && (
+        <div className="w-full flex flex-col mt-8">
+          <hr className="mb-4 border-gray-700" />
+          <p>{props.description}</p>
+        </div>
+      )}
     </div>
   );
 };
