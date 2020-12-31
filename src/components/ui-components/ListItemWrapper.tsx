@@ -5,33 +5,31 @@ import { format } from 'date-fns';
 import Arrow from './helpers/Arrow';
 
 const ItemHeader: React.FC<{
-  institute: string;
-  instituteUrl: string;
-  instituteLogo: string;
-  courseName: string;
-  grade: string;
+  title: string;
+  subtitle: string;
+  link: string;
+  logo: string;
+  badgeText?: string;
 }> = (props) => {
   return (
     <div className="flex flex-grow items-center">
       <a
-        href={props.instituteUrl}
+        href={props.link}
         className="w-auto h-20 mr-4 transition-all ease-in-out duration-500 transform hover:-rotate-45 hover:scale-110"
       >
-        <img
-          alt={props.institute}
-          className="w-auto h-20 mr-4"
-          src={props.instituteLogo}
-        />
+        <img alt={props.title} className="w-auto h-20 mr-4" src={props.logo} />
       </a>
 
       <div className="flex flex-grow flex-col description">
         <div className="flex flex-grow flex-row items-center justify-between">
-          <h1 className="text-2xl font-semibold mr-4">{props.courseName}</h1>
-          <div className="rounded-full bg-purple-600 text-gray-100 mr-3">
-            <span className="font-semibold p-3">{props.grade}</span>
-          </div>
+          <h1 className="text-2xl font-semibold mr-4">{props.title}</h1>
+          {props.badgeText && (
+            <div className="rounded-full bg-purple-600 text-gray-100 mr-3">
+              <span className="font-semibold p-3">{props.badgeText}</span>
+            </div>
+          )}
         </div>
-        <p>{props.institute}</p>
+        <p>{props.subtitle}</p>
       </div>
     </div>
   );
@@ -42,22 +40,32 @@ const DateSpan: React.FC<{ date: Date }> = ({ date }) => {
 };
 
 const ItemDescription: React.FC<{
-  description: string;
-  start: Date;
-  end: Date;
+  description?: string;
+  points?: string[];
+  start?: Date;
+  end?: Date;
   open: boolean;
-}> = ({ description, open, start, end }) => {
+}> = ({ description, points, open, start, end }) => {
   return (
     <AnimateHeight height={open ? 'auto' : 0}>
       <div className="p-6 shadow-md w-full flex flex-col bg-gray-100 text-black">
-        {/* <hr className="pb-4 border-gray-700" /> */}
+        {start && end && (
+          <h2 className="p-4 text-lg">
+            The course started in <DateSpan date={start} /> and finished in{' '}
+            <DateSpan date={end} />.
+          </h2>
+        )}
 
-        <h2 className="p-4 text-lg">
-          The course started in <DateSpan date={start} /> and finished in{' '}
-          <DateSpan date={end} />.
-        </h2>
-
-        <p className="px-4">{description}</p>
+        <div className="px-4">
+          {description && <p>{description}</p>}
+          {points && points.length > 0 && (
+            <ul className="list-disc list-inside">
+              {points.map((point) => (
+                <li key={point}> {point} </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </AnimateHeight>
   );
@@ -66,16 +74,17 @@ const ItemDescription: React.FC<{
 const ListItem: React.FC<{
   componentName: 'ListItem';
   index?: number;
-  institute: string;
-  instituteUrl: string;
-  instituteLogo: string;
-  courseName: string;
-  description: string;
-  start: Date;
-  end: Date;
-  grade: string;
+  title: string;
+  subtitle: string;
+  logo: string;
+  link: string;
+  description?: string;
+  points?: string[];
+  badgeText?: string;
+  start?: Date;
+  end?: Date;
   fadeDirection: ComponentProps<typeof Fade>['direction'];
-}> = ({ index = 0, ...props }) => {
+}> = ({ index = 0, points = [], ...props }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -102,7 +111,7 @@ const ListItem: React.FC<{
         </div>
 
         {/* collapsible div */}
-        <ItemDescription {...props} open={open} />
+        <ItemDescription {...props} points={points} open={open} />
       </div>
     </Fade>
   );
@@ -115,13 +124,11 @@ const ListItemWrapper: React.FC<{
 }> = ({ items }) => {
   return (
     <div className="justify-center">
-      {items
-        // .sort((skill1, skill2) => skill2.percentage - skill1.percentage)
-        .map((config, index) => (
-          <ListItem key={config.courseName} index={index} {...config}>
-            {' '}
-          </ListItem>
-        ))}
+      {items.map((config, index) => (
+        <ListItem key={config.title} index={index} {...config}>
+          {' '}
+        </ListItem>
+      ))}
     </div>
   );
 };
