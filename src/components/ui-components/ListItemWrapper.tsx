@@ -1,6 +1,7 @@
-import React, { ComponentProps, useEffect, useState } from 'react';
+import React, { ComponentProps, useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
 import AnimateHeight from 'react-animate-height';
+import { format } from 'date-fns';
 import Arrow from './helpers/Arrow';
 
 const ItemHeader: React.FC<{
@@ -33,15 +34,27 @@ const ItemHeader: React.FC<{
   );
 };
 
+const DateSpan: React.FC<{ date: Date }> = ({ date }) => {
+  return <span className="font-bold">{format(date, 'MMMM yy')}</span>;
+};
+
 const ItemDescription: React.FC<{
   description: string;
+  start: Date;
+  end: Date;
   open: boolean;
-}> = ({ description, open }) => {
+}> = ({ description, open, start, end }) => {
   return (
     <AnimateHeight height={open ? 'auto' : 0}>
-      <div className="pt-8 transition-all ease-in-out duration-500 w-full flex flex-col">
-        <hr className="pb-4 border-gray-700" />
-        <p>{description}</p>
+      <div className="mt-6 px-6 pb-6 shadow-md w-full flex flex-col bg-gray-100 text-black">
+        {/* <hr className="pb-4 border-gray-700" /> */}
+
+        <h2 className="p-4 text-lg">
+          The course started in <DateSpan date={start} /> and finished in{' '}
+          <DateSpan date={end} />.
+        </h2>
+
+        <p className="px-4">{description}</p>
       </div>
     </AnimateHeight>
   );
@@ -62,8 +75,12 @@ const ListItem: React.FC<{
   const [open, setOpen] = useState(false);
 
   return (
-    <li className="transition-all ease-in-out duration-500 shadow-md bg-gray-800 text-gray-200 my-8 p-6 rounded">
-      <div className="flex items-center justify-between">
+    <li
+      className={`transition-all ease-in-out duration-500 shadow-md my-8 rounded ${
+        open ? 'bg-blue-400 text-white' : 'bg-gray-100 text-black'
+      }`}
+    >
+      <div className="p-6 flex items-center justify-between">
         <ItemHeader {...props} />
 
         <div
@@ -78,7 +95,7 @@ const ListItem: React.FC<{
       </div>
 
       {/* collapsible div */}
-      <ItemDescription description={props.description} open={open} />
+      <ItemDescription {...props} open={open} />
     </li>
   );
 };
