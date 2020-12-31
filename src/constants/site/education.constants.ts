@@ -22,10 +22,10 @@ const skills: DynamicLayoutWithBasicWrapper = {
   components: [
     {
       componentName: 'ListItemWrapper',
-      fadeDirection: 'bottom-left',
       items: [
         {
           componentName: 'ListItem',
+          fadeDirection: 'bottom-left',
           institute: 'Queen Mary University, London',
           courseName: 'BSc. Computer Science with Industrial Placement',
           start: new Date('2015-08-01'),
@@ -37,6 +37,7 @@ const skills: DynamicLayoutWithBasicWrapper = {
         },
         {
           componentName: 'ListItem',
+          fadeDirection: 'top-right',
           institute: 'Queen Mary University, London',
           courseName:
             'International Science & Engineering Foundation Programme',
@@ -49,6 +50,7 @@ const skills: DynamicLayoutWithBasicWrapper = {
         },
         {
           componentName: 'ListItem',
+          fadeDirection: 'left',
           institute: 'Beaconhouse School System, Pakistan',
           courseName: "O'levels",
           start: new Date('2011-08-01'),

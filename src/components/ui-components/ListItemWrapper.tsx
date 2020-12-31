@@ -13,7 +13,10 @@ const ItemHeader: React.FC<{
 }> = (props) => {
   return (
     <div className="flex flex-grow items-center">
-      <a href={props.instituteUrl} className="w-auto h-20 mr-4">
+      <a
+        href={props.instituteUrl}
+        className="w-auto h-20 mr-4 transition-all ease-in-out duration-500 transform hover:-rotate-45 hover:scale-110"
+      >
         <img
           alt={props.institute}
           className="w-auto h-20 mr-4"
@@ -46,7 +49,7 @@ const ItemDescription: React.FC<{
 }> = ({ description, open, start, end }) => {
   return (
     <AnimateHeight height={open ? 'auto' : 0}>
-      <div className="mt-6 px-6 pb-6 shadow-md w-full flex flex-col bg-gray-100 text-black">
+      <div className="p-6 shadow-md w-full flex flex-col bg-gray-100 text-black">
         {/* <hr className="pb-4 border-gray-700" /> */}
 
         <h2 className="p-4 text-lg">
@@ -71,52 +74,55 @@ const ListItem: React.FC<{
   start: Date;
   end: Date;
   grade: string;
+  fadeDirection: ComponentProps<typeof Fade>['direction'];
 }> = ({ index = 0, ...props }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <li
-      className={`transition-all ease-in-out duration-500 shadow-md my-8 rounded ${
-        open ? 'bg-blue-400 text-white' : 'bg-gray-100 text-black'
-      }`}
-    >
-      <div className="p-6 flex items-center justify-between">
-        <ItemHeader {...props} />
-
+    <Fade direction={props.fadeDirection}>
+      <div
+        className={`transition-all ease-in-out duration-500 shadow-md my-8 rounded ${
+          open
+            ? 'bg-blue-400 text-white'
+            : 'bg-gray-100 text-black hover:bg-blue-200'
+        }`}
+      >
         <div
-          className="ml-4"
           role="button"
           onClick={() => setOpen(!open)}
           onKeyDown={() => setOpen(!open)}
           tabIndex={index}
+          className="p-6 flex items-center justify-between"
         >
-          <Arrow open={open} />
-        </div>
-      </div>
+          <ItemHeader {...props} />
 
-      {/* collapsible div */}
-      <ItemDescription {...props} open={open} />
-    </li>
+          <div className="ml-4">
+            <Arrow open={open} />
+          </div>
+        </div>
+
+        {/* collapsible div */}
+        <ItemDescription {...props} open={open} />
+      </div>
+    </Fade>
   );
 };
 
 const ListItemWrapper: React.FC<{
   componentName: 'ListItemWrapper';
-  fadeDirection: ComponentProps<typeof Fade>['direction'];
+
   items: ComponentProps<typeof ListItem>[];
-}> = ({ fadeDirection, items }) => {
+}> = ({ items }) => {
   return (
-    <Fade direction={fadeDirection}>
-      <ul className="justify-center">
-        {items
-          // .sort((skill1, skill2) => skill2.percentage - skill1.percentage)
-          .map((config, index) => (
-            <ListItem key={config.courseName} index={index} {...config}>
-              {' '}
-            </ListItem>
-          ))}
-      </ul>
-    </Fade>
+    <div className="justify-center">
+      {items
+        // .sort((skill1, skill2) => skill2.percentage - skill1.percentage)
+        .map((config, index) => (
+          <ListItem key={config.courseName} index={index} {...config}>
+            {' '}
+          </ListItem>
+        ))}
+    </div>
   );
 };
 
