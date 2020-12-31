@@ -28,6 +28,7 @@
     "pino": "^6.7.0",
     "pino-pretty": "^4.3.0",
     "react": "^17.0.1",
+    "react-animate-height": "^2.0.23",
     "react-awesome-reveal": "3.4.0",
     "react-dom": "^17.0.1",
     "react-intersection-observer": "^8.31.0",

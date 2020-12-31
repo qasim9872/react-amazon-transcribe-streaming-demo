@@ -772,6 +772,9 @@ module.exports = {
         'hero-1': "url('../images/hero.jpg')",
         'hero-2': "url('../images/hero_2.jpeg')",
       }),
+      transitionProperty: {
+        height: 'height',
+      },
     },
   },
   variantOrder: [
