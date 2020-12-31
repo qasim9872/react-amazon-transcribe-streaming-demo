@@ -6,12 +6,15 @@ import BottomLineDivWrapper from './BottomLineDivWrapper';
 import SkillBar from './SkillBar';
 import SkillBarWrapper from './SkillBarWrapper';
 
+import ListItemWrapper from './ListItemWrapper';
+
 const components = {
   AboutText,
   BottomLineDiv,
   BottomLineDivWrapper,
   SkillBar,
   SkillBarWrapper,
+  ListItemWrapper,
 };
 
 export default components;
