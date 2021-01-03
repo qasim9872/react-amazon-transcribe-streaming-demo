@@ -6,8 +6,10 @@ import BottomLineDivWrapper from './BottomLineDivWrapper';
 import SkillBar from './SkillBar';
 import SkillBarWrapper from './SkillBarWrapper';
 
-import ListItemWrapper from './ListItemWrapper';
+import ProjectCard from './ProjectCard';
+import ProjectsWrapper from './ProjectsWrapper';
 
+import ListItemWrapper from './ListItemWrapper';
 import TimelineWrapper from './TimelineWrapper';
 
 const components = {
@@ -18,6 +20,8 @@ const components = {
   SkillBarWrapper,
   ListItemWrapper,
   TimelineWrapper,
+  ProjectCard,
+  ProjectsWrapper,
 };
 
 export default components;

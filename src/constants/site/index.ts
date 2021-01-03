@@ -6,6 +6,7 @@ import aboutMeSection from './about-me.constants';
 import skillsSection from './skills.constants';
 import experienceSection from './experience.constants';
 import educationSection from './education.constants';
+import projectsSection from './projects.constants';
 
 type LayoutWithWrapper = Layout & Wrapper;
 
@@ -24,29 +25,22 @@ const site: SiteConfig = {
     skillsSection,
     experienceSection,
     educationSection,
-    {
-      id: 'projects',
-      layoutName: 'Blank',
-
-      wrap: 'Basic',
-      header: 'my projects',
-      title: 'recent projects',
-    },
+    projectsSection,
     {
       id: 'blog',
       layoutName: 'Blank',
 
       wrap: 'Basic',
-      header: 'read',
-      title: 'recent blog',
+      header: 'my blogs',
+      title: 'what I have written?',
     },
     {
       id: 'contact',
       layoutName: 'Blank',
 
       wrap: 'Basic',
-      header: 'get in touch',
-      title: 'contact',
+      header: 'my contact info',
+      title: 'how to contact me?',
     },
   ],
 };
