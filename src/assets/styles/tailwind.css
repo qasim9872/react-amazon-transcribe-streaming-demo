@@ -30,3 +30,27 @@ h3 {
 .hexagon::after {
   border-top-color: red !important;
 }
+
+.vertical-timeline.vertical-timeline-custom-line::before {
+  @apply bg-gray-100;
+}
+
+.vertical-timeline
+  .vertical-timeline-element
+  .vertical-timeline-element-content {
+  @apply bg-gray-100;
+  @apply text-gray-600;
+}
+
+.vertical-timeline
+  .vertical-timeline-element
+  .vertical-timeline-element-content-arrow {
+  /* bg-gray-100 */
+  --tw-bg-opacity: 1;
+  border-right: 7px solid rgba(243, 244, 246, var(--tw-bg-opacity));
+}
+
+.vertical-timeline-element-icon {
+  box-shadow: 0 0 0 4px black, inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
+}

@@ -8,6 +8,8 @@ import SkillBarWrapper from './SkillBarWrapper';
 
 import ListItemWrapper from './ListItemWrapper';
 
+import TimelineWrapper from './TimelineWrapper';
+
 const components = {
   AboutText,
   BottomLineDiv,
@@ -15,6 +17,7 @@ const components = {
   SkillBar,
   SkillBarWrapper,
   ListItemWrapper,
+  TimelineWrapper,
 };
 
 export default components;

@@ -8,7 +8,7 @@ const Basic: React.FC<{
 }> = ({ children, header, title }) => {
   return (
     <div className="px-2 lg:px-10 py-28 flex flex-col">
-      <div className="flex flex-col justify-around uppercase max-w-1/2">
+      <div className="flex flex-col justify-around uppercase max-w-3/5">
         <Fade
           direction="left"
           className="text-xs pb-4 text-gray-400 tracking-5px"
