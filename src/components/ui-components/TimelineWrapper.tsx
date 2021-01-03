@@ -16,10 +16,11 @@ type TimelineElement = ComponentProps<typeof VerticalTimelineElement> & {
   componentName: 'TimelineElement';
   title: string;
   subtitle: string;
-  description: string;
   start: Date;
   end?: Date;
   iconColor: string;
+  description?: string;
+  points?: string[];
 };
 
 const TimelineElementWrapper: React.FC<TimelineElement> = ({
@@ -28,6 +29,7 @@ const TimelineElementWrapper: React.FC<TimelineElement> = ({
   title,
   subtitle,
   description,
+  points,
   iconColor,
 }) => {
   return (
@@ -41,7 +43,16 @@ const TimelineElementWrapper: React.FC<TimelineElement> = ({
         {title}
       </h3>
       <h4 className="vertical-timeline-element-subtitle">{subtitle}</h4>
-      <p>{description}</p>
+      <div className="py-2">
+        {description && <p>{description}</p>}
+        {points && points.length > 0 && (
+          <ul className="list-disc list-inside">
+            {points.map((point) => (
+              <li key={point}> {point} </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </VerticalTimelineElement>
   );
 };
