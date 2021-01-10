@@ -6,9 +6,9 @@ const author = {
   jobTitle: 'Software engineer',
   location: 'London',
   socials: {
-    email: 'qasim9872@gmail.com',
+    email: 'mailto:qasim9872@gmail.com',
     github: 'https://github.com/qasim9872',
-    twitter: 'https://twitter.com/qasim9872',
+    // twitter: 'https://twitter.com/qasim9872',
     linkedin: 'https://www.linkedin.com/in/qasim9872/',
   },
 };
