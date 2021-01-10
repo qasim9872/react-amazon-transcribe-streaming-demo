@@ -11,7 +11,7 @@ type BasicWrapper = ComponentProps<typeof wrappers.Basic>;
 
 type DynamicLayoutWithBasicWrapper = DynamicLayout & BasicWrapper;
 
-const skills: DynamicLayoutWithBasicWrapper = {
+const education: DynamicLayoutWithBasicWrapper = {
   id: 'education',
   layoutName: 'Dynamic',
 
@@ -69,4 +69,4 @@ const skills: DynamicLayoutWithBasicWrapper = {
   ],
 };
 
-export default skills;
+export default education;

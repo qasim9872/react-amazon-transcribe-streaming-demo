@@ -12,6 +12,8 @@ import ProjectsWrapper from './ProjectsWrapper';
 import ListItemWrapper from './ListItemWrapper';
 import TimelineWrapper from './TimelineWrapper';
 
+import Contact from './Contact';
+
 const components = {
   AboutText,
   BottomLineDiv,
@@ -22,6 +24,7 @@ const components = {
   TimelineWrapper,
   ProjectCard,
   ProjectsWrapper,
+  Contact,
 };
 
 export default components;
