@@ -18,7 +18,6 @@ export const Info: React.FC<{
   socials: {
     email: string;
     github: string;
-    twitter: string;
     linkedin: string;
   };
   fadeDirection: ComponentProps<typeof Fade>['direction'];
