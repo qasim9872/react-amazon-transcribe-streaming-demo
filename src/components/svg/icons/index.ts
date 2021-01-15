@@ -1,16 +1,7 @@
 import { ComponentProps } from 'react';
 import { FaGithubSquare, FaLinkedin, FaEnvelopeSquare } from 'react-icons/fa';
 
-import Badminton from './Badminton';
-import Games from './Games';
-import Travel from './Travel';
-import Music from './Music';
-
 const icons = {
-  Badminton,
-  Games,
-  Travel,
-  Music,
   email: FaEnvelopeSquare,
   linkedin: FaLinkedin,
   github: FaGithubSquare,

@@ -1,14 +1,9 @@
 import React from 'react';
-import AuthorConfigProvider from './author-config';
-import SiteConfigProvider from './site-config';
+import BotConfigProvider from './bot-config';
 
 export const StoreProviders: React.FC = (props) => {
   const { children } = props;
-  return (
-    <AuthorConfigProvider>
-      <SiteConfigProvider>{children}</SiteConfigProvider>
-    </AuthorConfigProvider>
-  );
+  return <BotConfigProvider>{children}</BotConfigProvider>;
 };
 
 export default StoreProviders;

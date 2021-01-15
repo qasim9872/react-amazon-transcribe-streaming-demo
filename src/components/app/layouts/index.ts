@@ -1,10 +1,8 @@
 import { ComponentProps } from 'react';
-import Hero from './Hero';
 import Dynamic from './Dynamic';
 import Blank from './Blank';
 
 const layouts = {
-  Hero,
   Blank,
   Dynamic,
 };
