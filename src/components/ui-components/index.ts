@@ -1,7 +1,8 @@
 import { ComponentProps } from 'react';
 import Heading from './Heading';
+import DynamicTranscribeForm from './DynamicTranscribeForm';
 
-const components = { Heading };
+const components = { Heading, DynamicTranscribeForm };
 
 export default components;
 

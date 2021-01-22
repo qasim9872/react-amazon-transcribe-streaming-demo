@@ -1,12 +1,26 @@
+/* eslint-disable @typescript-eslint/indent */
 import * as React from 'react';
 import transcribeConfig from '../constants/transcribe.constants';
 
-export const TranscribeConfigContext = React.createContext(transcribeConfig);
+type TranscribeContext = Array<
+  | (() => {})
+  | React.Dispatch<React.SetStateAction<typeof transcribeConfig>>
+  | typeof transcribeConfig
+>;
 
-const TranscribeConfigProvider: React.FC = ({ children }) => (
-  <TranscribeConfigContext.Provider value={transcribeConfig}>
-    {children}
-  </TranscribeConfigContext.Provider>
-);
+export const TranscribeConfigContext = React.createContext<TranscribeContext>([
+  transcribeConfig,
+  () => {},
+]);
+
+const TranscribeConfigProvider: React.FC<{}> = ({ children }) => {
+  const transcribeConfigHook = React.useState(transcribeConfig);
+
+  return (
+    <TranscribeConfigContext.Provider value={transcribeConfigHook}>
+      {children}
+    </TranscribeConfigContext.Provider>
+  );
+};
 
 export default TranscribeConfigProvider;

@@ -7,7 +7,7 @@ const transcribe = {
   region: 'eu-west-1',
   sampleRate: 16000,
 
-  vocabularyName: null,
+  vocabularyName: '',
 };
 
 export default transcribe;

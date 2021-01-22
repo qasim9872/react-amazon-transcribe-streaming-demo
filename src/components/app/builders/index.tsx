@@ -17,7 +17,7 @@ export const buildAndWrapLayout: React.FC<LayoutWithWrapper> = (details) => {
   const wrapper = wrapLayout(details, layout);
 
   return (
-    <div key={details.id} id={mapRoute(details.id)} className="min-h-screen">
+    <div key={details.id} id={mapRoute(details.id)} className="">
       {wrapper}
     </div>
   );
