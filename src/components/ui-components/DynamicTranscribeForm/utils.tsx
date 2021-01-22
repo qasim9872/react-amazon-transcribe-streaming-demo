@@ -33,13 +33,13 @@ export const FormInput: React.FC<{
         name={formattedName}
         placeholder={name}
         aria-invalid={errors[formattedName] ? 'true' : 'false'}
-        value={context[formattedName]}
         className={`w-full mx-auto bg-gray-200 text-sm py-2 px-3 rounded mb-2 text-black ${
           errors[formattedName]
             ? 'border-red-500 border-2'
             : 'border-black border-b-2'
         }`}
         ref={register}
+        value={context[formattedName]}
         onChange={onInputChange}
       />
 
