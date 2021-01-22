@@ -1,9 +1,14 @@
 import React from 'react';
-import BotConfigProvider from './bot-config';
+import TranscribeConfigProvider from './transcribe-config';
+import SiteConfigProvider from './site-config';
 
 export const StoreProviders: React.FC = (props) => {
   const { children } = props;
-  return <BotConfigProvider>{children}</BotConfigProvider>;
+  return (
+    <SiteConfigProvider>
+      <TranscribeConfigProvider>{children}</TranscribeConfigProvider>
+    </SiteConfigProvider>
+  );
 };
 
 export default StoreProviders;
