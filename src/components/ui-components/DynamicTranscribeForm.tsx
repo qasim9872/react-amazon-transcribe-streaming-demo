@@ -2,8 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
-import { FormInput } from './utils';
-import useTranscribeConfig from '../../../hooks/use-transcribe-config';
+import FormInput from './FormInput';
+import useTranscribeConfig from '../../hooks/use-transcribe-config';
 
 const DynamicTranscribeForm: React.FC<{
   componentName: 'DynamicTranscribeForm';
@@ -41,12 +41,6 @@ const DynamicTranscribeForm: React.FC<{
           onInputChange={onChange}
         />
       ))}
-
-      {/* <input
-        className="cursor-pointer text-white font-bold py-2 px-4 rounded border block mx-auto w-full bg-blue-400 hover:bg-blue-600"
-        disabled={Object.values(errors).length > 0}
-        type="submit"
-      /> */}
     </form>
   );
 };

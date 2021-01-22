@@ -11,17 +11,13 @@ export interface SiteConfig {
 const site: SiteConfig = {
   sections: [
     {
-      id: 'heading',
+      id: 'header',
       layoutName: 'Dynamic',
 
       wrap: 'Box',
+      heading: 'Amazon Transcribe Demo!',
 
-      components: [
-        {
-          componentName: 'Heading',
-          text: 'Amazon Transcribe Demo!',
-        },
-      ],
+      components: [],
     },
 
     {
@@ -50,6 +46,16 @@ const site: SiteConfig = {
           }),
         },
       ],
+    },
+
+    {
+      id: 'streaming',
+      layoutName: 'Dynamic',
+
+      wrap: 'Box',
+      heading: 'Streaming',
+
+      components: [{ componentName: 'StreamingView' }],
     },
   ],
 };

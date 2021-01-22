@@ -11,7 +11,7 @@ type Fn = (
   | (() => void)
   | ((event: React.ChangeEvent<HTMLInputElement>) => void);
 
-export const FormInput: React.FC<{
+const FormInput: React.FC<{
   name: string;
   type: 'text' | 'password';
   register: any;
@@ -53,3 +53,5 @@ export const FormInput: React.FC<{
     </div>
   );
 };
+
+export default FormInput;

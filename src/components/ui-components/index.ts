@@ -1,8 +1,9 @@
 import { ComponentProps } from 'react';
 import Heading from './Heading';
+import StreamingView from './StreamingView';
 import DynamicTranscribeForm from './DynamicTranscribeForm';
 
-const components = { Heading, DynamicTranscribeForm };
+const components = { Heading, StreamingView, DynamicTranscribeForm };
 
 export default components;
 
