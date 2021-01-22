@@ -771,6 +771,9 @@ module.exports = {
       backgroundImage: (theme) => ({
         ...theme,
       }),
+      backgroundColor: {
+        grayishBlack: '#333',
+      },
       transitionProperty: {
         height: 'height',
       },

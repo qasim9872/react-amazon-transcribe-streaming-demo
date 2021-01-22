@@ -9,7 +9,7 @@ const Main: React.FC = () => {
 
   const sections = siteConfig.sections.map(buildAndWrapLayout);
 
-  return <div className="flex-grow">{sections}</div>;
+  return <div className="flex-grow m-10">{sections}</div>;
 };
 
 function App() {

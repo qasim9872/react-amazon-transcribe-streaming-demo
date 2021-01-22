@@ -8,7 +8,21 @@ export interface SiteConfig {
 }
 
 const site: SiteConfig = {
-  sections: [],
+  sections: [
+    {
+      id: 'heading',
+      layoutName: 'Dynamic',
+
+      wrap: 'Box',
+
+      components: [
+        {
+          componentName: 'Heading',
+          text: 'Amazon Transcribe Demo!',
+        },
+      ],
+    },
+  ],
 };
 
 export default site;

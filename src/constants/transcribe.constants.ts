@@ -1,3 +1,13 @@
-const bot = {};
+const transcribe = {
+  accessKey: '',
+  secretAccessKey: '',
 
-export default bot;
+  // default config
+  language: 'en-US',
+  region: 'eu-west-1',
+  sampleRate: 16000,
+
+  vocabularyName: null,
+};
+
+export default transcribe;

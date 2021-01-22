@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react';
-import Hello from './Hello';
+import Heading from './Heading';
 
-const components = { Hello };
+const components = { Heading };
 
 export default components;
 

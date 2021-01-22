@@ -1,10 +1,12 @@
 import { ComponentProps } from 'react';
 
 import None from './none';
+import Box from './box';
 import Basic from './basic';
 
 const wrappers = {
   None,
+  Box,
   Basic,
 };
 
