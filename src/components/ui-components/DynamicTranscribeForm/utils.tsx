@@ -4,24 +4,6 @@ import React from 'react';
 import { DeepMap, FieldError } from 'react-hook-form';
 import camelCase from 'camelcase';
 
-export const FormError: React.FC<{
-  name: string;
-  errorName: string;
-  errorMessage: string;
-  errors: DeepMap<Record<string, any>, FieldError>;
-}> = ({ errors, name, errorName, errorMessage }) => {
-  return (
-    <>
-      {/* use role="alert" to announce the error message */}
-      {errors[name] && errors[name].type === errorName && (
-        <span className="text-red-300 text-sm p-0 m-0" role="alert">
-          {errorMessage}
-        </span>
-      )}
-    </>
-  );
-};
-
 type Fn = (
   ...args: any[]
 ) =>
@@ -52,26 +34,22 @@ export const FormInput: React.FC<{
         placeholder={name}
         aria-invalid={errors[formattedName] ? 'true' : 'false'}
         value={context[formattedName]}
-        className="w-full mx-auto border-black border-b-2 text-sm py-2 px-3 rounded mb-2 text-black"
+        className={`w-full mx-auto bg-gray-200 text-sm py-2 px-3 rounded mb-2 text-black ${
+          errors[formattedName]
+            ? 'border-red-500 border-2'
+            : 'border-black border-b-2'
+        }`}
         ref={register}
         onChange={onInputChange}
       />
 
       {/* use role="alert" to announce the error message */}
 
-      <FormError
-        name={formattedName}
-        errorName="required"
-        errorMessage="This is required"
-        errors={errors}
-      />
-
-      <FormError
-        name={formattedName}
-        errorName="maxLength"
-        errorMessage="Max length exceeded"
-        errors={errors}
-      />
+      {errors[formattedName] && errors[formattedName].message && (
+        <span className="text-red-500 text-sm p-0 m-0" role="alert">
+          {errors[formattedName].message}
+        </span>
+      )}
     </div>
   );
 };

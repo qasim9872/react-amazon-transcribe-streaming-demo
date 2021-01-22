@@ -20,6 +20,7 @@ const DynamicTranscribeForm: React.FC<{
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.persist();
     if (typeof setTranscribeConfig === 'function') {
+      //   console.log({ [event.target.name]: event.target.value });
       setTranscribeConfig({
         ...transcribeConfig,
         [event.target.name]: event.target.value,

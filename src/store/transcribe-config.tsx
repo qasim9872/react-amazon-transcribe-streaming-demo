@@ -2,11 +2,10 @@
 import * as React from 'react';
 import transcribeConfig from '../constants/transcribe.constants';
 
-type TranscribeContext = Array<
-  | (() => {})
-  | React.Dispatch<React.SetStateAction<typeof transcribeConfig>>
-  | typeof transcribeConfig
->;
+type TranscribeContext = [
+  typeof transcribeConfig,
+  React.Dispatch<React.SetStateAction<typeof transcribeConfig>> | (() => {}),
+];
 
 export const TranscribeConfigContext = React.createContext<TranscribeContext>([
   transcribeConfig,
