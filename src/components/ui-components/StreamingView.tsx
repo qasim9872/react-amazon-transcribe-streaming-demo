@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TextBox from './TextBox';
+import TextBox from './helpers/TextBox';
 
 const StreamingView: React.FC<{
   componentName: 'StreamingView';

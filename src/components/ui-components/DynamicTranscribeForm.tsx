@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
-import FormInput from './FormInput';
+import FormInput from './helpers/FormInput';
 import useTranscribeConfig from '../../hooks/use-transcribe-config';
 
 const DynamicTranscribeForm: React.FC<{
