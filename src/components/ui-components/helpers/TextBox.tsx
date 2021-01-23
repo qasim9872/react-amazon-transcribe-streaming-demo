@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TextBox: React.FC<{
-  componentName: 'TextBox';
   name: string;
   value: string;
   placeholder?: string;
@@ -14,6 +13,7 @@ const TextBox: React.FC<{
       placeholder={placeholder}
       rows={10}
       value={value}
+      readOnly={true}
     />
   );
 };
