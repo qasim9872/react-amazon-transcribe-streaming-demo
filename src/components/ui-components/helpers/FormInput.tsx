@@ -23,7 +23,7 @@ const FormInput: React.FC<{
 
   return (
     <div className="flex flex-col text-black items-start">
-      <label className="capitalize pl-2" htmlFor={formattedName}>
+      <label className="capitalize font-bold" htmlFor={formattedName}>
         {name}
       </label>
 

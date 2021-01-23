@@ -1,6 +1,7 @@
 // .eslintignore
 build/*
 public/*
+@types/*
 src/react-app-env.d.ts
 src/serviceWorker.ts
 *.js
