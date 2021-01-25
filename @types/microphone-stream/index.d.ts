@@ -2,14 +2,16 @@ declare module 'microphone-stream' {
   import { Readable } from 'stream';
 
   export declare class MicrophoneStream extends Readable {
+    static toRaw(chunk: any): any;
+
     constructor(opts?: {
-      stream?: Readable;
+      stream?: MediaStream;
       objectMode?: boolean;
       bufferSize?: null | 256 | 512 | 1024 | 2048 | 4096 | 8192 | 16384;
       context?: AudioContext;
     });
 
-    setStream(mediaStream: Readable): void;
+    setStream(mediaStream: MediaStream): Promise<void>;
     stop(): void;
     pauseRecording(): void;
     playRecording(): void;
