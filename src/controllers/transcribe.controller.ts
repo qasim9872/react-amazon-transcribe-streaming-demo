@@ -6,6 +6,7 @@ import {
 import MicrophoneStream from 'microphone-stream';
 import { PassThrough } from 'stream';
 import transcribeConstants from '../constants/transcribe.constants';
+import { streamAsyncIterator } from '../utils/helpers';
 import logger from '../utils/logger';
 import EncodePcmStream from './streams/EncodePcmStream';
 
@@ -63,7 +64,7 @@ class TranscribeController {
     logger.info('setting up streams');
     this.encodePcmStream = new EncodePcmStream();
     this.audioPayloadStream = this.audioStream
-      //   .pipe(this.encodePcmStream)
+      .pipe(this.encodePcmStream)
       .pipe(new PassThrough({ highWaterMark: 1 * 1024 }));
 
     // creating and setting up transcribe client
@@ -93,6 +94,7 @@ class TranscribeController {
   }
 
   async onStart(response: StartStreamTranscriptionCommandOutput) {
+    logger.info('recognition started');
     if (response.TranscriptResultStream) {
       for await (const event of response.TranscriptResultStream) {
         // Get multiple possible results
@@ -116,12 +118,9 @@ class TranscribeController {
 
   async stop() {
     // request to stop recognition
-    this.rawMediaStream?.getTracks()[0].stop();
-    this.rawMediaStream = null;
-
-    this.audioStream?.removeAllListeners();
-    this.audioStream?.destroy();
+    this.audioStream?.stop();
     this.audioStream = null;
+    this.rawMediaStream = null;
 
     this.audioPayloadStream?.removeAllListeners();
     this.audioPayloadStream?.destroy();
@@ -136,7 +135,7 @@ class TranscribeController {
       throw new Error('payload stream not created');
     }
 
-    for await (const chunk of this.audioPayloadStream) {
+    for await (const chunk of streamAsyncIterator(this.audioPayloadStream)) {
       yield { AudioEvent: { AudioChunk: chunk } };
     }
   }
