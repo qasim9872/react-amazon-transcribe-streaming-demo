@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-amazon-transcribe-streaming/static/css/main.ca3506d5.chunk.css",
+    "main.js": "/react-amazon-transcribe-streaming/static/js/main.2fa8f982.chunk.js",
+    "main.js.map": "/react-amazon-transcribe-streaming/static/js/main.2fa8f982.chunk.js.map",
+    "runtime-main.js": "/react-amazon-transcribe-streaming/static/js/runtime-main.b41f5413.js",
+    "runtime-main.js.map": "/react-amazon-transcribe-streaming/static/js/runtime-main.b41f5413.js.map",
+    "static/js/2.93d2eb6b.chunk.js": "/react-amazon-transcribe-streaming/static/js/2.93d2eb6b.chunk.js",
+    "static/js/2.93d2eb6b.chunk.js.map": "/react-amazon-transcribe-streaming/static/js/2.93d2eb6b.chunk.js.map",
+    "static/js/3.d513614e.chunk.js": "/react-amazon-transcribe-streaming/static/js/3.d513614e.chunk.js",
+    "static/js/3.d513614e.chunk.js.map": "/react-amazon-transcribe-streaming/static/js/3.d513614e.chunk.js.map",
+    "index.html": "/react-amazon-transcribe-streaming/index.html",
+    "static/css/main.ca3506d5.chunk.css.map": "/react-amazon-transcribe-streaming/static/css/main.ca3506d5.chunk.css.map",
+    "static/js/2.93d2eb6b.chunk.js.LICENSE.txt": "/react-amazon-transcribe-streaming/static/js/2.93d2eb6b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b41f5413.js",
+    "static/js/2.93d2eb6b.chunk.js",
+    "static/css/main.ca3506d5.chunk.css",
+    "static/js/main.2fa8f982.chunk.js"
+  ]
+}
