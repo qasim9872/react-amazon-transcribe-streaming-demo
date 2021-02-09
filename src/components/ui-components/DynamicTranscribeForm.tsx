@@ -20,7 +20,6 @@ const DynamicTranscribeForm: React.FC<{
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.persist();
     if (typeof setTranscribeConfig === 'function') {
-      //   console.log({ [event.target.name]: event.target.value });
       setTranscribeConfig({
         ...transcribeConfig,
         [event.target.name]: event.target.value,
@@ -33,7 +32,7 @@ const DynamicTranscribeForm: React.FC<{
       {fields.map((field) => (
         <FormInput
           key={field}
-          type="text"
+          type={field === 'sampleRate' ? 'number' : 'text'}
           name={field}
           errors={errors}
           register={register}

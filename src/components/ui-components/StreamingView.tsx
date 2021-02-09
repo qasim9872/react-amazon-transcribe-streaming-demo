@@ -11,14 +11,18 @@ const StreamingView: React.FC<{
 }> = () => {
   const [transcribeConfig] = useTranscribeConfig();
 
-  const [textArray, setTextArray] = useState([]);
+  const [textArray, setTextArray] = useState<string[]>([]);
 
   const [started, setStarted] = useState(false);
   const transcribeController = useMemo(() => new TranscribeController(), []);
+  const displayText = useMemo(
+    () => (recognized: string, final: boolean) => {
+      logger.info({ recognized, final });
+      setTextArray([...textArray, recognized]);
+    },
+    [textArray],
+  );
 
-  const displayText = (recognized: string, final: boolean) => {
-    logger.info({ recognized, final });
-  };
   const toggleStarted = () => setStarted(!started);
 
   useEffect(() => {
@@ -27,7 +31,7 @@ const StreamingView: React.FC<{
 
     // if config is being updated, then stop the transcription
     setStarted(false);
-  }, [transcribeConfig, transcribeController]);
+  }, [displayText, transcribeConfig, transcribeController]);
 
   useEffect(() => {
     (async () => {

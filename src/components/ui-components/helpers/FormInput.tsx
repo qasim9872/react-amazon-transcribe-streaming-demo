@@ -13,7 +13,7 @@ type Fn = (
 
 const FormInput: React.FC<{
   name: string;
-  type: 'text' | 'password';
+  type: 'number' | 'text' | 'password';
   register: any;
   errors: DeepMap<Record<string, any>, FieldError>;
   context: { [key: string]: string | number };

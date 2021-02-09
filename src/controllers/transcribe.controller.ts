@@ -8,6 +8,7 @@ import { PassThrough } from 'stream';
 import transcribeConstants from '../constants/transcribe.constants';
 import { streamAsyncIterator } from '../utils/helpers';
 import logger from '../utils/logger';
+import { DownSampleAudio } from './streams/DownSampleStream';
 import EncodePcmStream from './streams/EncodePcmStream';
 
 class TranscribeController {
@@ -17,19 +18,19 @@ class TranscribeController {
 
   private audioPayloadStream: PassThrough | null;
 
-  private encodePcmStream: EncodePcmStream | null;
-
   private transcribeConfig?: typeof transcribeConstants;
 
   private client?: TranscribeStreamingClient;
 
   private textCallback?: (recognized: string, final: boolean) => void;
 
+  private started: boolean;
+
   constructor() {
     this.audioStream = null;
     this.rawMediaStream = null;
     this.audioPayloadStream = null;
-    this.encodePcmStream = null;
+    this.started = false;
   }
 
   hasConfig() {
@@ -45,13 +46,15 @@ class TranscribeController {
   }
 
   async init() {
+    this.started = true;
     if (!this.transcribeConfig) {
       throw new Error('transcribe config is not set');
     }
 
     // setting up microphone stream
     logger.info('setting up microphone stream');
-    this.audioStream = new MicrophoneStream({});
+    this.audioStream = new MicrophoneStream();
+
     this.rawMediaStream = await window.navigator.mediaDevices.getUserMedia({
       video: false,
       audio: {
@@ -62,9 +65,9 @@ class TranscribeController {
 
     // create and pipe the streams
     logger.info('setting up streams');
-    this.encodePcmStream = new EncodePcmStream();
     this.audioPayloadStream = this.audioStream
-      .pipe(this.encodePcmStream)
+      .pipe(new EncodePcmStream())
+      .pipe(new DownSampleAudio(44100, this.transcribeConfig.sampleRate))
       .pipe(new PassThrough({ highWaterMark: 1 * 1024 }));
 
     // creating and setting up transcribe client
@@ -117,6 +120,8 @@ class TranscribeController {
   }
 
   async stop() {
+    this.started = false;
+
     // request to stop recognition
     this.audioStream?.stop();
     this.audioStream = null;
@@ -136,7 +141,11 @@ class TranscribeController {
     }
 
     for await (const chunk of streamAsyncIterator(this.audioPayloadStream)) {
-      yield { AudioEvent: { AudioChunk: chunk } };
+      if (this.started) {
+        yield { AudioEvent: { AudioChunk: chunk } };
+      } else {
+        break;
+      }
     }
   }
 }
