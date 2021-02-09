@@ -10,33 +10,46 @@ const StreamingView: React.FC<{
   componentName: 'StreamingView';
 }> = () => {
   const [transcribeConfig] = useTranscribeConfig();
-
-  const [textArray, setTextArray] = useState<string[]>([]);
-
+  const [recognizedTextArray, setRecognizedTextArray] = useState<string[]>([]);
+  const [recognizingText, setRecognizingText] = useState<string>('');
   const [started, setStarted] = useState(false);
-  const transcribeController = useMemo(() => new TranscribeController(), []);
-  const displayText = useMemo(
-    () => (recognized: string, final: boolean) => {
-      logger.info({ recognized, final });
-      setTextArray([...textArray, recognized]);
-    },
-    [textArray],
-  );
 
-  const toggleStarted = () => setStarted(!started);
+  const transcribeController = useMemo(() => new TranscribeController(), []);
 
   useEffect(() => {
     transcribeController.setConfig(transcribeConfig);
-    transcribeController.setCallback(displayText);
 
     // if config is being updated, then stop the transcription
     setStarted(false);
-  }, [displayText, transcribeConfig, transcribeController]);
+  }, [transcribeConfig, transcribeController]);
+
+  useEffect(() => {
+    const display = ({ text, final }: { text: string; final: boolean }) => {
+      logger.info({ text, final });
+      if (final) {
+        setRecognizingText('');
+        setRecognizedTextArray((prevTextArray) => [...prevTextArray, text]);
+      } else {
+        setRecognizingText(text);
+      }
+    };
+
+    transcribeController.on('recognized', display);
+
+    return () => {
+      transcribeController.removeListener('recognized', display);
+    };
+  }, [transcribeController]);
 
   useEffect(() => {
     (async () => {
       if (started) {
         logger.info('attempting to start transcription');
+
+        // reset state
+        setRecognizedTextArray([]);
+        setRecognizingText('');
+
         await transcribeController.init().catch((error: Error) => {
           logger.error(error);
           setStarted(false);
@@ -53,7 +66,7 @@ const StreamingView: React.FC<{
       <TextBox
         name="streaming-result"
         placeholder="Your text will show up here"
-        value={textArray.join()}
+        value={[...recognizedTextArray, recognizingText].join(' ')}
       />
 
       <div className="flex-grow flex flex-row justify-center">
@@ -61,13 +74,13 @@ const StreamingView: React.FC<{
           text="Start"
           color="green"
           disabled={started}
-          onClick={toggleStarted}
+          onClick={() => setStarted(true)}
         />
         <Button
           text="Stop"
           color="red"
           disabled={!started}
-          onClick={toggleStarted}
+          onClick={() => setStarted(false)}
         />
       </div>
     </div>

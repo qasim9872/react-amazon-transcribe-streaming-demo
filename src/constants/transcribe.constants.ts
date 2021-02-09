@@ -5,7 +5,7 @@ const transcribe = {
   // default config
   language: 'en-US',
   region: 'eu-west-1',
-  sampleRate: 16000,
+  sampleRate: 44100,
 
   vocabularyName: '',
 };

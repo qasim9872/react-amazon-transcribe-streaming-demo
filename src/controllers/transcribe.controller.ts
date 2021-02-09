@@ -5,13 +5,14 @@ import {
 } from '@aws-sdk/client-transcribe-streaming';
 import MicrophoneStream from 'microphone-stream';
 import { PassThrough } from 'stream';
+import { EventEmitter } from 'events';
+
 import transcribeConstants from '../constants/transcribe.constants';
 import { streamAsyncIterator } from '../utils/helpers';
 import logger from '../utils/logger';
-import { DownSampleAudio } from './streams/DownSampleStream';
 import EncodePcmStream from './streams/EncodePcmStream';
 
-class TranscribeController {
+class TranscribeController extends EventEmitter {
   private audioStream: MicrophoneStream | null;
 
   private rawMediaStream: MediaStream | null;
@@ -22,11 +23,11 @@ class TranscribeController {
 
   private client?: TranscribeStreamingClient;
 
-  private textCallback?: (recognized: string, final: boolean) => void;
-
   private started: boolean;
 
   constructor() {
+    super();
+
     this.audioStream = null;
     this.rawMediaStream = null;
     this.audioPayloadStream = null;
@@ -41,8 +42,15 @@ class TranscribeController {
     this.transcribeConfig = transcribeConfig;
   }
 
-  setCallback(textCallback: (recognized: string, final: boolean) => void) {
-    this.textCallback = textCallback;
+  validateConfig() {
+    if (
+      !this.transcribeConfig?.accessKey ||
+      !this.transcribeConfig.secretAccessKey
+    ) {
+      throw new Error(
+        'missing required config: access key and secret access key are required',
+      );
+    }
   }
 
   async init() {
@@ -50,6 +58,9 @@ class TranscribeController {
     if (!this.transcribeConfig) {
       throw new Error('transcribe config is not set');
     }
+
+    logger.info('transcribe config', this.transcribeConfig);
+    this.validateConfig();
 
     // setting up microphone stream
     logger.info('setting up microphone stream');
@@ -67,7 +78,6 @@ class TranscribeController {
     logger.info('setting up streams');
     this.audioPayloadStream = this.audioStream
       .pipe(new EncodePcmStream())
-      .pipe(new DownSampleAudio(44100, this.transcribeConfig.sampleRate))
       .pipe(new PassThrough({ highWaterMark: 1 * 1024 }));
 
     // creating and setting up transcribe client
@@ -97,7 +107,8 @@ class TranscribeController {
   }
 
   async onStart(response: StartStreamTranscriptionCommandOutput) {
-    logger.info('recognition started');
+    logger.info('recognition started', response);
+
     if (response.TranscriptResultStream) {
       for await (const event of response.TranscriptResultStream) {
         // Get multiple possible results
@@ -112,7 +123,7 @@ class TranscribeController {
             const [alternative] = alternatives;
             const text = alternative.Transcript;
 
-            this.textCallback && text && this.textCallback(text, final);
+            this.emit('recognized', { text, final });
           }
         }
       }

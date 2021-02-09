@@ -1,21 +1,12 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import { joiResolver } from '@hookform/resolvers/joi';
-import Joi from 'joi';
 import FormInput from './helpers/FormInput';
 import useTranscribeConfig from '../../hooks/use-transcribe-config';
 
 const DynamicTranscribeForm: React.FC<{
   componentName: 'DynamicTranscribeForm';
   fields: string[];
-  validationSchema: Joi.ObjectSchema;
-}> = ({ fields, validationSchema }) => {
+}> = ({ fields }) => {
   const [transcribeConfig, setTranscribeConfig] = useTranscribeConfig();
-
-  const { register, errors } = useForm({
-    mode: 'onTouched',
-    resolver: joiResolver(validationSchema),
-  });
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.persist();
@@ -32,10 +23,8 @@ const DynamicTranscribeForm: React.FC<{
       {fields.map((field) => (
         <FormInput
           key={field}
-          type={field === 'sampleRate' ? 'number' : 'text'}
+          type="text"
           name={field}
-          errors={errors}
-          register={register}
           context={transcribeConfig as { [key: string]: string | number }}
           onInputChange={onChange}
         />
